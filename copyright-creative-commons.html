@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copyright &amp; Creative Commons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f5fe; font-family: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif; padding: 2rem 1.5rem; color: #1a2a3e; line-height: 1.7; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #6d9bf0; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 1.2rem; border-radius: 30px; background: #e8effa; border: 1px solid #d4e2f7; transition: 0.2s; margin-bottom: 1.5rem; }
+        .back-link:hover { background: #d4e2f7; border-color: #6d9bf0; transform: translateX(-3px); }
+        .main-card { background: #fff; border-radius: 36px; padding: 2.5rem 3rem; border: 1px solid #d4e2f7; box-shadow: 0 8px 30px rgba(109,155,240,0.08); }
+        @media (max-width:600px){ .main-card { padding:1.5rem; } }
+        .lesson-header { text-align:center; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:2px solid #e8effa; }
+        .lesson-header .badge { display:inline-block; background:#8a6d3b; color:#fff; font-weight:700; font-size:0.8rem; padding:0.3rem 1.2rem; border-radius:30px; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.5rem; }
+        .lesson-header h1 { font-size:2.6rem; font-weight:700; display:flex; align-items:center; justify-content:center; gap:0.8rem; flex-wrap:wrap; color:#1a2a3e; }
+        .lesson-header h1 i { color:#8a6d3b; }
+        .lesson-header .subtitle { color:#4a6a8a; font-size:1rem; margin-top:0.3rem; }
+        @media (max-width:600px){ .lesson-header h1 { font-size:1.8rem; } }
+        .intro-box { background:#f5f9ff; border-radius:20px; padding:1.8rem 2.2rem; margin-bottom:2rem; border-left:6px solid #8a6d3b; }
+        .intro-box .quote-icon { color:#8a6d3b; font-size:1.2rem; margin-right:0.5rem; opacity:0.7; }
+        .intro-box p { font-size:1.05rem; color:#1a2a3e; line-height:1.9; }
+        .intro-box strong { color:#8a6d3b; }
+        @media (max-width:600px){ .intro-box { padding:1.2rem; } .intro-box p { font-size:0.95rem; } }
+        .section-title { font-size:1.6rem; font-weight:700; margin:2.5rem 0 1.2rem; display:flex; align-items:center; gap:0.7rem; color:#1a2a3e; }
+        .section-title i { color:#6d9bf0; }
+        .section-title .emoji { font-size:1.8rem; }
+        .topic-card { background:#f5f9ff; border-radius:16px; padding:1.5rem 1.8rem; margin-bottom:1.2rem; border:1px solid #d4e2f7; transition:0.2s; }
+        .topic-card:hover { border-color:#8a6d3b; box-shadow:0 4px 12px rgba(138,109,59,0.1); }
+        .topic-card .topic-title { font-weight:700; font-size:1.1rem; color:#1a2a3e; display:flex; align-items:center; gap:0.7rem; margin-bottom:0.5rem; }
+        .topic-card .topic-title i { color:#8a6d3b; }
+        .topic-card .topic-desc { font-size:0.95rem; color:#2a4a6a; margin-bottom:0.5rem; }
+        .topic-card .topic-example { font-size:0.88rem; color:#4a6a8a; background:#e8effa; padding:0.5rem 1rem; border-radius:8px; border-left:4px solid #8a6d3b; margin-top:0.5rem; }
+        .topic-card .topic-example i { color:#8a6d3b; margin-right:0.4rem; }
+        .topic-card .topic-example code { background:#1a2a3e; color:#ffd93d; padding:0.1rem 0.5rem; border-radius:4px; font-family:'SF Mono','Fira Code',monospace; font-size:0.82rem; }
+        .table-wrapper { overflow-x:auto; margin:1rem 0 1.5rem; border-radius:12px; border:1px solid #d4e2f7; }
+        .table-wrapper table { width:100%; border-collapse:collapse; font-size:0.9rem; min-width:500px; }
+        .table-wrapper table th { background:#8a6d3b; color:#fff; font-weight:600; padding:0.7rem 1rem; text-align:left; }
+        .table-wrapper table td { padding:0.7rem 1rem; border-bottom:1px solid #e8effa; color:#2a4a6a; }
+        .table-wrapper table tr:last-child td { border-bottom:none; }
+        .table-wrapper table tr:nth-child(even) td { background:#f5f9ff; }
+        .table-wrapper table .bad { color:#d9534f; font-weight:600; }
+        .table-wrapper table .good { color:#5cb85c; font-weight:600; }
+        .examples-box { background:#f5f9ff; border-radius:20px; padding:1.8rem 2rem; margin:1.5rem 0; border:1px solid #d4e2f7; }
+        .example-item { margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid #d4e2f7; }
+        .example-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+        .example-item .example-title { font-weight:700; font-size:1.05rem; color:#1a2a3e; display:flex; align-items:center; gap:0.6rem; margin-bottom:0.4rem; }
+        .example-item .example-title i { color:#8a6d3b; }
+        .example-item .example-content { font-size:0.95rem; color:#2a4a6a; padding-left:2rem; }
+        @media (max-width:600px){ .examples-box { padding:1rem 1.2rem; } .example-item .example-content { padding-left:0; } }
+        .pro-tip { background:linear-gradient(135deg,#1a2a3e,#16213e); border-radius:16px; padding:1.2rem 1.8rem; margin:1.2rem 0; color:#fff; border-left:6px solid #ffd93d; }
+        .pro-tip i { color:#ffd93d; margin-right:0.5rem; }
+        .pro-tip code { background:rgba(255,255,255,0.1); color:#ffd93d; padding:0.1rem 0.5rem; border-radius:4px; font-family:'SF Mono','Fira Code',monospace; font-size:0.88rem; }
+        .activity-box { background:linear-gradient(135deg,#1a2a3e,#0f3460); border-radius:20px; padding:2rem 2.2rem; margin:1.5rem 0; color:#fff; border:1px solid #8a6d3b; }
+        .activity-box .activity-title { font-size:1.3rem; font-weight:700; display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem; }
+        .activity-box .activity-title i { color:#ffd93d; }
+        .activity-box .activity-part { font-weight:600; font-size:1rem; color:#ffd93d; margin-top:1rem; display:flex; align-items:center; gap:0.5rem; }
+        .activity-box .activity-part:first-of-type { margin-top:0; }
+        .activity-box ul { list-style-type:none; padding-left:0; }
+        .activity-box ul li { display:flex; align-items:flex-start; gap:0.7rem; margin-bottom:0.5rem; font-size:0.95rem; color:#d4e2f7; }
+        .activity-box ul li i { color:#ffd93d; margin-top:0.2rem; flex-shrink:0; }
+        .activity-box ul li strong { color:#fff; }
+        @media (max-width:600px){ .activity-box { padding:1.2rem; } }
+        .takeaway-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin:1rem 0; }
+        .takeaway-item { background:#f5f9ff; border-radius:12px; padding:1rem 1.2rem; border:1px solid #d4e2f7; text-align:center; }
+        .takeaway-item .takeaway-icon { font-size:2rem; display:block; margin-bottom:0.3rem; }
+        .takeaway-item .takeaway-label { font-weight:700; font-size:0.85rem; color:#1a2a3e; }
+        .takeaway-item .takeaway-desc { font-size:0.8rem; color:#4a6a8a; }
+        @media (max-width:700px){ .takeaway-grid { grid-template-columns:1fr 1fr; } }
+        @media (max-width:450px){ .takeaway-grid { grid-template-columns:1fr; } }
+        .reflection-box { background:#f5f9ff; border-radius:16px; padding:1.5rem 2rem; margin:1.5rem 0; border:1px solid #d4e2f7; }
+        .reflection-box ul { list-style-type:none; padding-left:0; }
+        .reflection-box ul li { display:flex; align-items:flex-start; gap:0.7rem; margin-bottom:0.5rem; font-size:0.95rem; color:#2a4a6a; }
+        .reflection-box ul li i { color:#8a6d3b; margin-top:0.2rem; flex-shrink:0; }
+        .reflection-box .hw-item { font-weight:600; color:#1a2a3e; display:flex; align-items:center; gap:0.5rem; margin-top:0.8rem; }
+        .reflection-box .hw-item i { color:#8a6d3b; }
+        .page-footer { margin-top:2.5rem; padding-top:1.5rem; border-top:2px solid #e8effa; text-align:center; font-size:0.85rem; color:#4a6a8a; }
+        .page-footer i { color:#8a6d3b; }
+        @media print { .back-link { display:none; } body { background:#fff; padding:0.3in; } .main-card { box-shadow:none; border:1px solid #ccc; } .activity-box { background:#1a2a3e !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .pro-tip { background:#1a2a3e !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .table-wrapper table th { background:#8a6d3b !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="semester1-21113.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Semester 1</a>
+    <div class="main-card">
+        <header class="lesson-header">
+            <span class="badge"><i class="fas fa-copyright"></i> Lesson 05</span>
+            <h1><i class="fas fa-copyright"></i> Copyright &amp; Creative Commons</h1>
+            <p class="subtitle"><i class="fas fa-hand-peace"></i> Use other people's work the right way</p>
+        </header>
+        <div class="intro-box">
+            <p><i class="fas fa-quote-left quote-icon"></i><strong>You're working on a school project about robots. You find the perfect image on Google, copy it into your presentation, and submit it. That's fine, right? Wrong.</strong> The person who took that photo owns it, and using it without permission is like stealing their work. In 2023, a Thai student was sued for using a photographer's image without credit on their blog. In another case, a student was expelled for downloading and sharing copyrighted movies on the school network. But here's the good news — there's a world of <strong style="color:#8a6d3b;">free, legal content</strong> out there called Creative Commons. Creators share their work for you to use, as long as you give them credit. Today, you'll learn to use other people's work the right way — and protect yourself from legal trouble.</p>
+        </div>
+        <h2 class="section-title"><span class="emoji">📚</span> What You Need to Know</h2>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-copyright"></i> What is Copyright?</div>
+            <div class="topic-desc">Copyright is a legal right that protects original creative works. When someone creates something — a photo, a song, a video, a piece of writing, or software — they automatically own the copyright to that work. This means no one else can copy, distribute, or use that work without permission.</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#8a6d3b;"></i> What Copyright Protects:</div>
+            <div class="table-wrapper"><table><thead><tr><th>Type of Work</th><th>Examples</th></tr></thead><tbody>
+                <tr><td><strong>Literary Works</strong></td><td>Books, articles, poems, essays</td></tr>
+                <tr><td><strong>Musical Works</strong></td><td>Songs, compositions, sheet music</td></tr>
+                <tr><td><strong>Artistic Works</strong></td><td>Paintings, photographs, sculptures</td></tr>
+                <tr><td><strong>Dramatic Works</strong></td><td>Plays, scripts, screenplays</td></tr>
+                <tr><td><strong>Audiovisual Works</strong></td><td>Movies, videos, TV shows</td></tr>
+                <tr><td><strong>Sound Recordings</strong></td><td>Music recordings, podcasts</td></tr>
+                <tr><td><strong>Software</strong></td><td>Apps, programs, code</td></tr>
+                <tr><td><strong>Architectural Works</strong></td><td>Buildings, designs</td></tr>
+            </tbody></table></div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-hourglass" style="color:#8a6d3b;"></i> How Long Does Copyright Last?</div>
+            <ul style="padding-left:2rem; color:#2a4a6a; font-size:0.92rem; list-style-type:none;">
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">⏳</span> Generally, copyright lasts for <strong>the life of the creator + 70 years</strong></li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">⏳</span> After that, the work enters the <strong>public domain</strong></li>
+            </ul>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> A musician writes a song. Without permission, no one can use, copy, or sell that song. If someone uses it in a YouTube video without permission, the musician can file a copyright claim to have the video removed or monetized.</div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-balance-scale"></i> What is Fair Use?</div>
+            <div class="topic-desc">Fair use is a legal doctrine that allows limited use of copyrighted material without permission for specific purposes. It's a defense against copyright infringement.</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#8a6d3b;"></i> When Fair Use May Apply:</div>
+            <div class="table-wrapper"><table><thead><tr><th>Purpose</th><th>Example</th></tr></thead><tbody>
+                <tr><td><strong>Education</strong></td><td>Using a short clip in a classroom presentation</td></tr>
+                <tr><td><strong>Criticism</strong></td><td>Quoting a book in a review</td></tr>
+                <tr><td><strong>Commentary</strong></td><td>Using a movie clip to analyze film techniques</td></tr>
+                <tr><td><strong>News Reporting</strong></td><td>Showing a photo in a news story</td></tr>
+                <tr><td><strong>Parody</strong></td><td>Creating a funny version of a song</td></tr>
+                <tr><td><strong>Research</strong></td><td>Including a diagram in a scientific paper</td></tr>
+            </tbody></table></div>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> A student uses 10 seconds of a movie clip in a presentation to analyze cinematography. This is fair use because it's for education, uses only a small portion, and doesn't harm the movie's market.</div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-creative-commons"></i> What is Creative Commons?</div>
+            <div class="topic-desc">Creative Commons (CC) is a licensing system that allows creators to share their work with specific permissions. Instead of "all rights reserved" (traditional copyright), Creative Commons offers "some rights reserved."</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#8a6d3b;"></i> The Six Creative Commons Licenses:</div>
+            <div class="table-wrapper"><table><thead><tr><th>License</th><th>What You Can Do</th><th>Requirements</th></tr></thead><tbody>
+                <tr><td><strong>CC BY</strong></td><td>Use, share, modify</td><td>Must give credit to the creator</td></tr>
+                <tr><td><strong>CC BY-SA</strong></td><td>Use, share, modify</td><td>Credit + share under the same license</td></tr>
+                <tr><td><strong>CC BY-ND</strong></td><td>Use, share</td><td>Credit + NO modifications</td></tr>
+                <tr><td><strong>CC BY-NC</strong></td><td>Use, share, modify</td><td>Credit + NON-COMMERCIAL only</td></tr>
+                <tr><td><strong>CC BY-NC-SA</strong></td><td>Use, share, modify</td><td>Credit + non-commercial + share under same license</td></tr>
+                <tr><td><strong>CC BY-NC-ND</strong></td><td>Use, share</td><td>Credit + non-commercial + NO modifications</td></tr>
+            </tbody></table></div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-globe" style="color:#8a6d3b;"></i> Where to Find CC-Licensed Content:</div>
+            <ul style="padding-left:2rem; color:#2a4a6a; font-size:0.92rem; list-style-type:none;">
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">📷</span> <strong>Unsplash</strong> — Photos (free with attribution)</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">📷</span> <strong>Pexels</strong> — Photos, videos (free with attribution)</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">📷</span> <strong>Pixabay</strong> — Photos, videos, music (free with attribution)</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">📷</span> <strong>Flickr</strong> — Photos (filter by CC license)</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">🔍</span> <strong>Creative Commons Search</strong> — All types (various CC licenses)</li>
+            </ul>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> A photographer uploads their photo to Flickr with "CC BY 4.0" license. Anyone can use, share, and modify the photo as long as they credit the photographer. A student uses the photo in their project and writes: <code>"Photo by John Doe, Flickr, CC BY 4.0"</code></div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-globe"></i> What is Public Domain?</div>
+            <div class="topic-desc">Public domain works are not protected by copyright and can be freely used by anyone for any purpose. No permission is needed, and no credit is required (though it's always good practice to credit).</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#8a6d3b;"></i> How Works Enter the Public Domain:</div>
+            <ul style="padding-left:2rem; color:#2a4a6a; font-size:0.92rem; list-style-type:none;">
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">⏳</span> Copyright expired</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">🎯</span> Creator dedicated the work to the public domain</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">🏛️</span> Works created by the US government</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#8a6d3b;">📄</span> Facts, ideas, and titles are not copyrightable</li>
+            </ul>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> Shakespeare's plays are in the public domain. Anyone can adapt, perform, or sell them without permission. That's why you see so many modern versions of "Romeo and Juliet" and "Hamlet."</div>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">✅</span> Examples for Students</h2>
+        <div class="examples-box">
+            <div class="example-item"><div class="example-title"><i class="fas fa-arrow-right"></i> Example 1 — Correct &amp; Incorrect Use</div>
+            <div class="example-content"><div class="table-wrapper"><table><thead><tr><th>❌ Incorrect</th><th>✅ Correct</th></tr></thead><tbody>
+                <tr><td>Downloading a Disney image and using it in a school commercial project without permission</td><td>Searching on Pixabay for a free-to-use image of a castle and citing: <code>"Castle by Pixabay, free for commercial use."</code></td></tr>
+                <tr><td>Using a song from YouTube in a video without credit</td><td>Using a song from FreeSound with CC license and crediting the artist</td></tr>
+                <tr><td>Copying a paragraph from Wikipedia without citation</td><td>Paraphrasing the information and citing Wikipedia as the source</td></tr>
+            </tbody></table></div></div></div>
+            <div class="example-item"><div class="example-title"><i class="fas fa-arrow-right"></i> Example 2 — Finding CC-Licensed Content</div>
+            <div class="example-content"><ol style="padding-left:1.2rem;"><li>Go to <code>https://search.creativecommons.org</code></li><li>Search for "space exploration"</li><li>Select a photo with CC BY license</li><li>Download the image</li><li>Add attribution: <code>"Space Shuttle by NASA, CC BY 2.0"</code></li></ol></div></div>
+            <div class="example-item"><div class="example-title"><i class="fas fa-arrow-right"></i> Example 3 — Understanding CC Licenses</div>
+            <div class="example-content"><div class="table-wrapper"><table><thead><tr><th>License</th><th>What it means</th><th>Can I use it in my school project?</th></tr></thead><tbody>
+                <tr><td><strong>CC BY</strong></td><td>Use, share, modify — just give credit</td><td style="color:#5cb85c;">✅ Yes, if you credit the creator</td></tr>
+                <tr><td><strong>CC BY-SA</strong></td><td>Use, share, modify — credit + share under same license</td><td style="color:#5cb85c;">✅ Yes, but your project must use the same license</td></tr>
+                <tr><td><strong>CC BY-ND</strong></td><td>Use and share — credit + NO modifications</td><td style="color:#f0ad4e;">⚠️ Yes, but you can't change the image</td></tr>
+                <tr><td><strong>CC BY-NC</strong></td><td>Use, share, modify — credit + NON-COMMERCIAL only</td><td style="color:#5cb85c;">✅ Yes, for school projects (non-commercial)</td></tr>
+            </tbody></table></div></div></div>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">🧪</span> Activity: Find &amp; Cite a CC-Licensed Image</h2>
+        <div class="activity-box">
+            <div class="activity-title"><i class="fas fa-rocket"></i> Let's Get Started!</div>
+            <div class="activity-part"><i class="fas fa-search"></i> Part 1: Research</div>
+            <ul><li><i class="fas fa-check-circle"></i> Students are given a topic (e.g., "climate change," "coral reefs," or "space exploration")</li>
+            <li><i class="fas fa-check-circle"></i> Search on Creative Commons, Unsplash, or Pixabay</li>
+            <li><i class="fas fa-check-circle"></i> Find one image that is licensed under CC BY or CC BY-SA</li></ul>
+            <div class="activity-part" style="margin-top:1.2rem;"><i class="fas fa-pen"></i> Part 2: Download and Cite</div>
+            <ul><li><i class="fas fa-check-circle"></i> Download the image</li>
+            <li><i class="fas fa-check-circle"></i> Write proper attribution: <code>"Title by Author, Source, License"</code></li>
+            <li><i class="fas fa-check-circle"></i> Example: <code>"Coral Reef by MarineBio Society, Flickr, CC BY 2.0"</code></li></ul>
+            <div class="activity-part" style="margin-top:1.2rem;"><i class="fas fa-presentation"></i> Part 3: Presentation</div>
+            <ul><li><i class="fas fa-check-circle"></i> Create a short slide or poster using the image</li>
+            <li><i class="fas fa-check-circle"></i> Present to the class, explaining what license the image has, how you credited the creator, and why it's important to respect copyright</li></ul>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">📊</span> Key Takeaways</h2>
+        <div class="takeaway-grid">
+            <div class="takeaway-item"><span class="takeaway-icon">©️</span><div class="takeaway-label">Copyright</div><div class="takeaway-desc">Creators own their work — get permission or credit them</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">⚖️</span><div class="takeaway-label">Fair Use</div><div class="takeaway-desc">Limited use for education, criticism, and research</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">🆓</span><div class="takeaway-label">Creative Commons</div><div class="takeaway-desc">Free to use with attribution — check the license</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">🌍</span><div class="takeaway-label">Public Domain</div><div class="takeaway-desc">Free to use without permission or credit</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">📝</span><div class="takeaway-label">Cite Sources</div><div class="takeaway-desc">Always credit the creator — it's the right thing to do</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">🔍</span><div class="takeaway-label">Check Before Using</div><div class="takeaway-desc">Always check the license before using someone's work</div></div>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">📝</span> Reflection Questions</h2>
+        <div class="reflection-box"><ul>
+            <li><i class="fas fa-question-circle"></i> What is copyright and why does it matter?</li>
+            <li><i class="fas fa-question-circle"></i> What is the difference between traditional copyright and Creative Commons?</li>
+            <li><i class="fas fa-question-circle"></i> Why should you cite sources when using other people's work?</li>
+            <li><i class="fas fa-question-circle"></i> How can you find free-to-use images for your projects?</li>
+            <li><i class="fas fa-question-circle"></i> What would you do if someone used your work without permission?</li>
+        </ul></div>
+
+        <h2 class="section-title"><span class="emoji">🏠</span> Homework</h2>
+        <div class="reflection-box">
+            <div class="hw-item"><i class="fas fa-search"></i> 1. Image Hunt</div><ul><li><i class="fas fa-chevron-right" style="color:#8a6d3b;"></i> Find 3 CC-licensed images for your next project. Cite them properly.</li></ul>
+            <div class="hw-item" style="margin-top:0.8rem;"><i class="fas fa-edit"></i> 2. Citation Practice</div><ul><li><i class="fas fa-chevron-right" style="color:#8a6d3b;"></i> Write proper citations for 5 different types of content (image, video, music, article, book).</li></ul>
+            <div class="hw-item" style="margin-top:0.8rem;"><i class="fas fa-users"></i> 3. Family Mission</div><ul><li><i class="fas fa-chevron-right" style="color:#8a6d3b;"></i> Teach a family member about copyright and Creative Commons. Show them how to find free-to-use images.</li></ul>
+        </div>
+
+        <div class="page-footer"><i class="fas fa-copyright"></i> Respect creators &bull; Give credit &bull; Use responsibly<br><span style="font-size:0.8rem; opacity:0.7;"><i class="fas fa-bible"></i> "Whatever you do, work heartily, as for the Lord and not for men" — Colossians 3:23</span></div>
+    </div>
+</div>
+</body>
+</html>

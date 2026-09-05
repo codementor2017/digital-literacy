@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Safety</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f5fe;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem 1.5rem;
+            color: #1a2a3e;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6d9bf0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            background: #e8effa;
+            border: 1px solid #d4e2f7;
+            transition: 0.2s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link:hover {
+            background: #d4e2f7;
+            border-color: #6d9bf0;
+            transform: translateX(-3px);
+        }
+
+        /* ===== MAIN CARD ===== */
+        .main-card {
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 2.5rem 3rem;
+            border: 1px solid #d4e2f7;
+            box-shadow: 0 8px 30px rgba(109, 155, 240, 0.08);
+        }
+
+        @media (max-width: 600px) {
+            .main-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e8effa;
+        }
+
+        .lesson-header .badge {
+            display: inline-block;
+            background: #6d9bf0;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .lesson-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .lesson-header h1 i {
+            color: #6d9bf0;
+        }
+
+        .lesson-header .subtitle {
+            color: #4a6a8a;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== INTRODUCTION ===== */
+        .intro-box {
+            background: #f5f9ff;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid #6d9bf0;
+        }
+
+        .intro-box .quote-icon {
+            color: #6d9bf0;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .intro-box p {
+            font-size: 1.05rem;
+            color: #1a2a3e;
+            line-height: 1.9;
+        }
+
+        .intro-box strong {
+            color: #6d9bf0;
+        }
+
+        @media (max-width: 600px) {
+            .intro-box {
+                padding: 1.2rem 1.2rem;
+            }
+            .intro-box p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            margin: 2.5rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .section-title i {
+            color: #6d9bf0;
+        }
+
+        .section-title .emoji {
+            font-size: 1.8rem;
+        }
+
+        .sub-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            margin: 1.8rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sub-section-title i {
+            color: #6d9bf0;
+            font-size: 1rem;
+        }
+
+        /* ===== TOPIC CARDS ===== */
+        .topic-card {
+            background: #f5f9ff;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #d4e2f7;
+            transition: 0.2s ease;
+        }
+
+        .topic-card:hover {
+            border-color: #6d9bf0;
+            box-shadow: 0 4px 12px rgba(109, 155, 240, 0.1);
+        }
+
+        .topic-card .topic-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .topic-title i {
+            color: #6d9bf0;
+        }
+
+        .topic-card .topic-desc {
+            font-size: 0.95rem;
+            color: #2a4a6a;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .topic-example {
+            font-size: 0.88rem;
+            color: #4a6a8a;
+            background: #e8effa;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #6d9bf0;
+            margin-top: 0.5rem;
+        }
+
+        .topic-card .topic-example i {
+            color: #6d9bf0;
+            margin-right: 0.4rem;
+        }
+
+        .topic-card .topic-example code {
+            background: #1a2a3e;
+            color: #ffd93d;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.82rem;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem 0;
+            border-radius: 12px;
+            border: 1px solid #d4e2f7;
+        }
+
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+
+        .table-wrapper table th {
+            background: #6d9bf0;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+            text-align: left;
+        }
+
+        .table-wrapper table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #e8effa;
+            color: #2a4a6a;
+        }
+
+        .table-wrapper table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-wrapper table tr:nth-child(even) td {
+            background: #f5f9ff;
+        }
+
+        .table-wrapper table .bad {
+            color: #d9534f;
+            font-weight: 600;
+        }
+
+        .table-wrapper table .good {
+            color: #5cb85c;
+            font-weight: 600;
+        }
+
+        /* ===== EXAMPLES BOX ===== */
+        .examples-box {
+            background: #f5f9ff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d4e2f7;
+        }
+
+        .example-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #d4e2f7;
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .example-item .example-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .example-item .example-title i {
+            color: #6d9bf0;
+        }
+
+        .example-item .example-content {
+            font-size: 0.95rem;
+            color: #2a4a6a;
+            padding-left: 2rem;
+        }
+
+        .example-item .example-content .bad {
+            color: #d9534f;
+            font-weight: 600;
+        }
+
+        .example-item .example-content .good {
+            color: #5cb85c;
+            font-weight: 600;
+        }
+
+        .example-item .example-content code {
+            background: #e8effa;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #6d9bf0;
+        }
+
+        .example-item .example-content .password-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .example-item .example-content .password-list code {
+            background: #1a2a3e;
+            color: #ffd93d;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .examples-box {
+                padding: 1rem 1.2rem;
+            }
+            .example-item .example-content {
+                padding-left: 0;
+            }
+        }
+
+        /* ===== PRO TIP ===== */
+        .pro-tip {
+            background: linear-gradient(135deg, #1a2a3e, #16213e);
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.2rem 0;
+            color: #fff;
+            border-left: 6px solid #ffd93d;
+        }
+
+        .pro-tip i {
+            color: #ffd93d;
+            margin-right: 0.5rem;
+        }
+
+        .pro-tip code {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd93d;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88rem;
+        }
+
+        /* ===== ACTIVITY BOX ===== */
+        .activity-box {
+            background: linear-gradient(135deg, #1a2a3e, #0f3460);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin: 1.5rem 0;
+            color: #fff;
+            border: 1px solid #6d9bf0;
+        }
+
+        .activity-box .activity-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-box .activity-title i {
+            color: #ffd93d;
+        }
+
+        .activity-box .activity-part {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffd93d;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .activity-box .activity-part:first-of-type {
+            margin-top: 0;
+        }
+
+        .activity-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .activity-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #d4e2f7;
+        }
+
+        .activity-box ul li i {
+            color: #ffd93d;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .activity-box ul li strong {
+            color: #fff;
+        }
+
+        .activity-box table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+            color: #d4e2f7;
+        }
+
+        .activity-box table th {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.8rem;
+            text-align: left;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .activity-box table td {
+            padding: 0.4rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-box table .good {
+            color: #6bcb77;
+        }
+
+        .activity-box table .bad {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 600px) {
+            .activity-box {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        /* ===== KEY TAKEAWAYS ===== */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .takeaway-item {
+            background: #f5f9ff;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #d4e2f7;
+            text-align: center;
+        }
+
+        .takeaway-item .takeaway-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .takeaway-item .takeaway-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #1a2a3e;
+        }
+
+        .takeaway-item .takeaway-desc {
+            font-size: 0.8rem;
+            color: #4a6a8a;
+        }
+
+        @media (max-width: 700px) {
+            .takeaway-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .takeaway-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== REFLECTION / HOMEWORK ===== */
+        .reflection-box {
+            background: #f5f9ff;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d4e2f7;
+        }
+
+        .reflection-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .reflection-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #2a4a6a;
+        }
+
+        .reflection-box ul li i {
+            color: #6d9bf0;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .reflection-box .hw-item {
+            font-weight: 600;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .reflection-box .hw-item i {
+            color: #6d9bf0;
+        }
+
+        /* ===== CHECKLIST ===== */
+        .checklist-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            margin: 1rem 0;
+            border: 2px solid #6d9bf0;
+        }
+
+        .checklist-box .checklist-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist-box .checklist-title i {
+            color: #6d9bf0;
+        }
+
+        .checklist-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .checklist-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.92rem;
+            color: #2a4a6a;
+        }
+
+        .checklist-box ul li i {
+            color: #6d9bf0;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .page-footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e8effa;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a6a8a;
+        }
+
+        .page-footer i {
+            color: #6d9bf0;
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            .back-link {
+                display: none;
+            }
+            body {
+                background: #fff;
+                padding: 0.3in;
+            }
+            .main-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                border-radius: 12px;
+            }
+            .topic-card:hover {
+                box-shadow: none;
+            }
+            .activity-box {
+                background: #1a2a3e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .pro-tip {
+                background: #1a2a3e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .table-wrapper table th {
+                background: #6d9bf0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- BACK BUTTON -->
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Lessons
+        </a>
+
+        <!-- MAIN CARD -->
+        <div class="main-card">
+
+            <!-- HEADER -->
+            <header class="lesson-header">
+                <span class="badge"><i class="fas fa-shield-alt"></i> Digital Safety</span>
+                <h1>
+                    <i class="fas fa-hashtag"></i>
+                    Social Media Safety
+                </h1>
+                <p class="subtitle">
+                    <i class="fas fa-lock" style="color: #6d9bf0;"></i>
+                    Lock down your digital life
+                </p>
+            </header>
+
+            <!-- ===== INTRODUCTION ===== -->
+            <div class="intro-box">
+                <p>
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <strong>How many of you have posted a photo, checked in at a location, or shared your birthday online?</strong>
+                    It feels harmless, right? You're just sharing with friends and having fun. But did you know that criminals, stalkers, and even future employers are watching? In Thailand, over <strong>60%</strong> of teenagers have shared personal information publicly on social media. A single post with your school name, location, and photo can be used to find you in real life. Predators have used social media posts to track down teenagers. Employers have rejected job applicants because of inappropriate posts from years ago. Colleges have revoked scholarships because of offensive tweets. But here's the good news — <strong style="color: #6d9bf0;">you can take control</strong>. Most social media platforms have powerful privacy settings that let you decide exactly who sees what. You can protect your personal information, control your reputation, and enjoy social media safely. Let's learn how to <strong>lock down your digital life</strong> and take back control of your online presence.
+                </p>
+            </div>
+
+            <!-- ===== TOPICS ===== -->
+            <h2 class="section-title">
+                <span class="emoji">📚</span> What You Need to Know
+            </h2>
+
+            <!-- Privacy Settings -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-sliders-h"></i> Privacy Settings — Your First Line of Defense
+                </div>
+                <div class="topic-desc">
+                    Privacy settings are the controls on social media platforms that let you choose who can see your posts, personal information, location, and activity. Many platforms default to "Public" settings, which means anyone in the world — including strangers, scammers, and potential employers — can see everything you post. Taking a few minutes to adjust these settings is one of the most important things you can do to protect yourself online.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Key Privacy Settings to Check on Every Platform:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Setting</th>
+                                <th>What It Controls</th>
+                                <th>Why It Matters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Account Privacy</strong></td>
+                                <td>Public vs. Private account</td>
+                                <td>Private accounts limit visibility to approved followers only</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Post Visibility</strong></td>
+                                <td>Who can see each post</td>
+                                <td>You can customize who sees different posts (friends, close friends, public)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Story Controls</strong></td>
+                                <td>Who can view your stories</td>
+                                <td>Hide stories from specific people or share with close friends only</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Activity Status</strong></td>
+                                <td>Shows when you're online</td>
+                                <td>Turn it off to prevent others from knowing when you're active</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tagging Controls</strong></td>
+                                <td>Who can tag you in posts</td>
+                                <td>Prevent strangers from tagging you in unwanted content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Message Controls</strong></td>
+                                <td>Who can send you messages</td>
+                                <td>Limit messages to followers or friends only</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Sharing</strong></td>
+                                <td>What data the platform shares with third parties</td>
+                                <td>Limit ad targeting and data collection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Step-by-Step Privacy Settings Guide:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Where to Find Settings</th>
+                                <th>Key Settings to Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Instagram</strong></td>
+                                <td>Settings → Privacy</td>
+                                <td>Account Privacy → Private, Activity Status → Off, Story Controls → Close Friends only</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok</strong></td>
+                                <td>Settings → Privacy</td>
+                                <td>Private Account, Suggest your account to others → Off, Allow others to find me → Off</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Facebook</strong></td>
+                                <td>Settings &amp; Privacy → Privacy Checkup</td>
+                                <td>Who can see your posts → Friends, Who can look you up → Friends</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Snapchat</strong></td>
+                                <td>Settings → Privacy Controls</td>
+                                <td>See My Location → Turn off Ghost Mode, Allow Friends to Find Me → Off</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Twitter/X</strong></td>
+                                <td>Settings &amp; Support → Privacy &amp; Safety</td>
+                                <td>Protect your Tweets → On, Photo tagging → Off</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student sets their Instagram account to <strong>"Private"</strong> so only approved followers can see their photos. This prevents strangers from downloading or sharing their images. Additionally, they turn off <strong>"Activity Status"</strong> so people can't see when they were last online. They also set <strong>"Story Controls"</strong> to hide their stories from people they don't trust.
+                </div>
+            </div>
+
+            <!-- Sharing Personal Information -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-user-secret"></i> Sharing Personal Information — Think Before You Post
+                </div>
+                <div class="topic-desc">
+                    Every piece of personal information you share online adds to your digital footprint. Scammers, stalkers, and identity thieves can piece together information from different posts to build a complete profile of you. Even seemingly harmless details like your school name, pet's name, or birthday can be used to guess passwords or answer security questions.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> What NOT to Share Online:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Examples</th>
+                                <th>Why It's Dangerous</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Personal Identifiers</strong></td>
+                                <td>Full name, date of birth, ID number</td>
+                                <td>Identity theft, account takeovers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>Home address, school name, current location</td>
+                                <td>Stalking, physical danger</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contact Info</strong></td>
+                                <td>Phone number, email address</td>
+                                <td>Harassment, spam, scams</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Financial Info</strong></td>
+                                <td>Bank details, credit card numbers</td>
+                                <td>Fraud, theft</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Family Info</strong></td>
+                                <td>Family members' names, parents' jobs</td>
+                                <td>Social engineering, impersonation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Travel Plans</strong></td>
+                                <td>"I'm on vacation for 2 weeks!"</td>
+                                <td>Burglary, theft</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Private Photos</strong></td>
+                                <td>Photos you wouldn't want everyone to see</td>
+                                <td>Reputation damage, embarrassment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pro-tip">
+                    <i class="fas fa-star"></i>
+                    <strong>The "Grandmother Test"</strong>
+                    Before you post anything, ask yourself:
+                    <br />
+                    <em>"Would I be comfortable if my grandmother, my teacher, my future employer, or my future children saw this?"</em>
+                    <br />
+                    If the answer is no, <strong style="color: #ffd93d;">don't post it</strong>.
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student posts a photo in their school uniform with the school name tag visible. The photo is public. A stranger now knows their name, their school, and what they look like. This information could be used to find them in real life. The student should have:
+                    <br />
+                    • Blurred the school name tag
+                    <br />
+                    • Set the post to "Friends Only"
+                    <br />
+                    • Avoided posting photos in uniform that identify their school
+                </div>
+            </div>
+
+            <!-- Friend/Follow Management -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-users"></i> Friend/Follow Management — Know Who You're Sharing With
+                </div>
+                <div class="topic-desc">
+                    Who you accept as a friend or follower on social media determines who can see your posts. Many people accept friend requests from strangers because it feels good to have a larger following. But every new follower is a potential threat. Scammers often create fake accounts to get access to your personal information.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Red Flags for Fake or Suspicious Accounts:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Warning Sign</th>
+                                <th>What to Look For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>No Profile Photo</strong></td>
+                                <td>Default avatar or generic image</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Few Posts or Followers</strong></td>
+                                <td>New account with very little activity</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Oversharing</strong></td>
+                                <td>Too eager to message or ask personal questions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Suspicious Username</strong></td>
+                                <td>Strange combination of letters and numbers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>No Mutual Friends</strong></td>
+                                <td>No friends in common</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Links in Bio</strong></td>
+                                <td>Links to suspicious websites</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Requests Money</strong></td>
+                                <td>Asking for money or gift cards</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Best Practices for Friend/Follow Management:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Practice</th>
+                                <th>Why It's Important</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Only accept people you know in real life</strong></td>
+                                <td>Protects your privacy and safety</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Review followers periodically</strong></td>
+                                <td>Remove suspicious or inactive accounts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Block and report suspicious accounts</strong></td>
+                                <td>Prevents future contact and helps platforms take action</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Be wary of "friend of a friend" requests</strong></td>
+                                <td>Hackers often use mutual friends as trust signals</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Check profiles before accepting</strong></td>
+                                <td>Look for red flags</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student accepts a follower request from an account with 0 posts, a generic profile photo, and no mutual friends. A few days later, the account sends a DM with a link saying: <em>"Check out my new video — you're in it!"</em> The student clicks the link and is directed to a fake login page that steals their Instagram credentials.
+                    <br />
+                    <strong>Lesson:</strong> Don't accept friend requests from strangers. Always check profiles before accepting.
+                </div>
+            </div>
+
+            <!-- Reporting & Blocking -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-flag"></i> Reporting &amp; Blocking — How to Handle Cyberbullies and Harassment
+                </div>
+                <div class="topic-desc">
+                    Social media platforms have systems in place to report and block users who engage in harassment, bullying, or inappropriate behavior. Reporting alerts the platform so they can investigate and take action — from removing content to permanently banning the user. Blocking immediately prevents the user from contacting you.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> When to Report and Block:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Situation</th>
+                                <th>Example</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Harassment</strong></td>
+                                <td>Someone sends threatening or hateful messages</td>
+                                <td>Report → Harassment, Block</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Impersonation</strong></td>
+                                <td>Someone creates a fake account pretending to be you</td>
+                                <td>Report → Impersonation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bullying</strong></td>
+                                <td>Someone posts mean comments or spreads rumors</td>
+                                <td>Report → Bullying or Harassment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inappropriate Content</strong></td>
+                                <td>Someone sends explicit or disturbing content</td>
+                                <td>Report → Inappropriate Content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scams/Phishing</strong></td>
+                                <td>Someone sends suspicious links or asks for money</td>
+                                <td>Report → Scam, Block</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Step-by-Step Reporting Guide:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>How to Report</th>
+                                <th>How to Block</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Instagram</strong></td>
+                                <td>Tap ... → Report → Choose reason</td>
+                                <td>Tap ... → Block</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok</strong></td>
+                                <td>Tap Share → Report → Choose reason</td>
+                                <td>Tap Share → Block</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Facebook</strong></td>
+                                <td>Tap ... → Find Support or Report</td>
+                                <td>Tap ... → Block</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Snapchat</strong></td>
+                                <td>Press and hold → Report → Choose reason</td>
+                                <td>Press and hold → More → Block</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Twitter/X</strong></td>
+                                <td>Tap ... → Report → Choose reason</td>
+                                <td>Tap ... → Block</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student receives a threatening DM from a classmate. They tap the message → Report → Choose "Harassment" → Block the user. They then screenshot the message and show it to their parents. The classmate's account is temporarily suspended, and the school counselor is informed.
+                </div>
+            </div>
+
+            <!-- Location Services -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-map-marker-alt"></i> Location Services — Stop Sharing Where You Are
+                </div>
+                <div class="topic-desc">
+                    Location tagging on social media shares your physical location with everyone who can see your post. This includes not only your current location but also the places you frequently visit. Posting your location tells people where you are, where you're not, and where you hang out — which can be dangerous for several reasons.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Dangers of Sharing Location:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Risk</th>
+                                <th>Example</th>
+                                <th>Why It's Dangerous</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stalking</strong></td>
+                                <td>Tagging your school location</td>
+                                <td>Predators know where to find you</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Burglary</strong></td>
+                                <td>"I'm on vacation in Phuket!"</td>
+                                <td>Thieves know your house is empty</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Surveillance</strong></td>
+                                <td>Tagging your favorite café</td>
+                                <td>People know your daily routines</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Harassment</strong></td>
+                                <td>Tagging a public event</td>
+                                <td>People can find you in real life</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Collection</strong></td>
+                                <td>Location data sold to advertisers</td>
+                                <td>Companies build a profile of your habits</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Best Practices for Location Safety:
+                </div>
+                <ul style="padding-left: 2rem; color: #2a4a6a; font-size: 0.92rem; list-style-type: none;">
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        Turn off location tagging for all posts
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        Don't post your home address or school address
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        Don't share your daily schedule or routines
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        Avoid posting "I'm on vacation" until you return
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        Don't tag your home in any posts
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        Use "Check In" sparingly and only with close friends
+                    </li>
+                </ul>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student posts a photo at a café and tags the location. A stranger now knows their favorite hangout spot and can easily find them there. A few weeks later, a stranger approaches them at that café and mentions their social media post — a frightening and dangerous situation. The student could have avoided this by turning off location tagging.
+                </div>
+            </div>
+
+            <!-- Digital Footprint & Reputation -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-history"></i> Digital Footprint &amp; Reputation on Social Media
+                </div>
+                <div class="topic-desc">
+                    Everything you post on social media contributes to your digital footprint — a permanent record of your online activity. Even if you delete a post, it may have been screenshotted, archived, or saved by others. Your social media activity can affect:
+                    <br />
+                    • <strong>College admissions</strong> — Many universities check applicants' social media
+                    <br />
+                    • <strong>Job applications</strong> — 70% of employers check social media before hiring
+                    <br />
+                    • <strong>Scholarships</strong> — Some scholarship committees review online behavior
+                    <br />
+                    • <strong>Personal relationships</strong> — People judge based on what you post
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> What Your Social Media Posts Say About You:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type of Post</th>
+                                <th>Message It Sends</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Positive, helpful posts</strong></td>
+                                <td>Mature, responsible, kind</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Negative, hateful posts</strong></td>
+                                <td>Immature, toxic, unprofessional</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Oversharing personal info</strong></td>
+                                <td>Poor judgment, naive</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Professional content</strong></td>
+                                <td>Ambitious, hardworking, intelligent</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Activism/social good</strong></td>
+                                <td>Caring, engaged, thoughtful</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Tips for Building a Positive Reputation:
+                </div>
+                <ul style="padding-left: 2rem; color: #2a4a6a; font-size: 0.92rem; list-style-type: none;">
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        <strong>Post content you'd be proud of</strong> — Future employers will see it
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        <strong>Think before you post</strong> — "Would I want my family to see this?"
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        <strong>Delete old, embarrassing posts</strong> — Clean up your digital footprint
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        <strong>Use privacy settings</strong> — Limit who can see your content
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        <strong>Create a positive presence</strong> — Post about your achievements, hobbies, and interests
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #5cb85c;">✅</span>
+                        <strong>Be kind online</strong> — Your comments reflect your character
+                    </li>
+                </ul>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student is applying to a prestigious university. The admissions officer searches their name online and finds:
+                    <br />
+                    ✅ A LinkedIn profile with volunteer work and academic achievements
+                    <br />
+                    ❌ A public Twitter account with political arguments and inappropriate jokes
+                    <br />
+                    ❌ A Facebook post with offensive language from 2 years ago
+                    <br />
+                    <strong>The student missed out on admission because of the negative posts.</strong> The lesson: clean up your digital footprint before applying to anything important.
+                </div>
+            </div>
+
+            <!-- Age Restrictions -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-calendar-check"></i> Age Restrictions — Why They Matter
+                </div>
+                <div class="topic-desc">
+                    Most social media platforms have a minimum age requirement of 13 (under COPPA in the US) or 16 (under GDPR in Europe). These restrictions exist to protect young users from inappropriate content, data collection, and online predators. When you lie about your age to create an account, you are violating the platform's terms of service and putting yourself at risk.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Minimum Age Requirements:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Minimum Age</th>
+                                <th>Why It Matters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Instagram</strong></td>
+                                <td>13</td>
+                                <td>Protects children from predators and inappropriate content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok</strong></td>
+                                <td>13</td>
+                                <td>Limited features for underage users (different data rules)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Facebook</strong></td>
+                                <td>13</td>
+                                <td>COPPA compliance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Snapchat</strong></td>
+                                <td>13</td>
+                                <td>Protects against location tracking and strangers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>YouTube</strong></td>
+                                <td>13</td>
+                                <td>Limited content and restricted features for underage users</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Twitter/X</strong></td>
+                                <td>13</td>
+                                <td>Data protection and age-appropriate content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                    <i class="fas fa-exclamation-triangle" style="color: #d9534f;"></i>
+                    Why You Shouldn't Lie About Your Age:
+                </div>
+                <ul style="padding-left: 2rem; color: #2a4a6a; font-size: 0.92rem; list-style-type: none;">
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        It violates Terms of Service — your account could be suspended
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        You'll see content not meant for your age group
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        Your data may be used in ways you don't understand
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        You miss out on safety features designed for younger users
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        Legal consequences for platforms that collect data from underage users
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== EXAMPLES FOR STUDENTS ===== -->
+            <h2 class="section-title">
+                <span class="emoji">✅</span> Examples for Students
+            </h2>
+
+            <div class="examples-box">
+                <!-- Example 1 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 1 — Privacy Settings Walkthrough (Instagram)
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Action</th>
+                                        <th>Why It Matters</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1</strong></td>
+                                        <td>Go to Settings → Privacy → Account Privacy</td>
+                                        <td>Start the privacy setup process</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>Switch from "Public" to "Private"</td>
+                                        <td>Only approved followers can see your posts</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3</strong></td>
+                                        <td>Go to "Activity Status" → Turn off "Show Activity Status"</td>
+                                        <td>People can't see when you were last online</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>Go to "Story Controls" → Hide story from specific people</td>
+                                        <td>Control who can view your stories</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5</strong></td>
+                                        <td>Go to "Tags" → Manage tags → Turn on "Manually approve tags"</td>
+                                        <td>You control who can tag you in posts</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>6</strong></td>
+                                        <td>Go to "Messages" → Turn on "Message Requests" filter</td>
+                                        <td>Filter messages from non-followers</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 2 — What NOT to Share Publicly
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>❌ Bad Post</th>
+                                        <th>✅ Good Post</th>
+                                        <th>Why the Change?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>"Happy 15th birthday to me! 🎂 #Bangkok #SarasasSchool"</td>
+                                        <td>"Thanks for all the birthday wishes! 🎂"</td>
+                                        <td>No personal info (age, location, school)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>"Can't wait for our family trip to Phuket next week! 🏖️"</td>
+                                        <td>"Had an amazing vacation with family! 🏖️"</td>
+                                        <td>Don't share future plans (burglary risk)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>"Just moved into our new house at 123 Sukhumvit Road!"</td>
+                                        <td>"So excited about our new home! 🏠"</td>
+                                        <td>Don't share your home address</td>
+                                    </tr>
+                                    <tr>
+                                        <td>"So upset with my math teacher. She hates me."</td>
+                                        <td>"Math class is challenging. I'll keep working hard. 💪"</td>
+                                        <td>Avoid negative posts about others</td>
+                                    </tr>
+                                    <tr>
+                                        <td>"Out with friends at CentralWorld Mall tonight!"</td>
+                                        <td>"Great night with friends! 🎉"</td>
+                                        <td>Don't tag current location in real-time</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 3 — Reporting Harassment
+                    </div>
+                    <div class="example-content">
+                        <p><strong>Scenario:</strong> A student receives a threatening DM on Instagram:</p>
+                        <blockquote style="background: #e8effa; padding: 0.5rem 1rem; border-radius: 8px; border-left: 4px solid #d9534f; margin: 0.5rem 0;">
+                            <em>"I know where you live. I'm going to come to your school tomorrow."</em>
+                        </blockquote>
+                        <p><strong>Step-by-Step Response:</strong></p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Action</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1</strong></td>
+                                        <td>Screenshot the message</td>
+                                        <td>Evidence for reporting and authorities</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>Do NOT reply</td>
+                                        <td>Engaging can escalate the situation</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3</strong></td>
+                                        <td>Report the message</td>
+                                        <td>Tap message → Report → Harassment/Bullying</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>Block the user</td>
+                                        <td>Tap ... → Block → Confirm</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5</strong></td>
+                                        <td>Tell a trusted adult</td>
+                                        <td>Tell parents, teacher, or school counselor</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>6</strong></td>
+                                        <td>Save the evidence</td>
+                                        <td>Store screenshots in a safe place</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>7</strong></td>
+                                        <td>If threatened, contact authorities</td>
+                                        <td>If it's a serious threat, call the police</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p><strong>Why This Works:</strong> Reporting alerts Instagram to investigate. Blocking prevents further contact. Telling an adult ensures someone knows what's happening. Screenshots provide evidence.</p>
+                    </div>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 4 — Location Safety Checklist
+                    </div>
+                    <div class="example-content">
+                        <p><strong>Before you post, ask yourself:</strong></p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Question</th>
+                                        <th>Yes</th>
+                                        <th>No</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Does this post reveal where I live?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Does this post reveal my school?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Is my location tag turned ON?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Am I posting from my current location?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Does this photo show street signs or landmarks near my home?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Am I announcing I'm away from home?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Does this post reveal my daily routine?</td>
+                                        <td style="color: #d9534f;">⚠️</td>
+                                        <td style="color: #5cb85c;">✅</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>If you answered ⚠️ to any of these, <strong style="color: #d9534f;">DO NOT POST</strong> until you remove the location information.</p>
+                    </div>
+                </div>
+
+                <!-- Example 5 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 5 — Friend/Follow Management Audit
+                    </div>
+                    <div class="example-content">
+                        <p><strong>How to Audit Your Followers:</strong></p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1</strong></td>
+                                        <td>Scroll through your follower list</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>For each person, ask: "Do I know them in real life?"</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3</strong></td>
+                                        <td>If NO, remove them by clicking Remove or Block</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>For people you do know, ask: "Is their account legitimate?"</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5</strong></td>
+                                        <td>If suspicious, check for red flags (no posts, no profile photo, strange username)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>6</strong></td>
+                                        <td>For suspicious accounts, Block and Report</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p><strong>Red Flags Checklist:</strong></p>
+                        <div class="checklist-box">
+                            <div class="checklist-title">
+                                <i class="fas fa-list"></i> Red Flags
+                            </div>
+                            <ul>
+                                <li><i class="fas fa-square"></i> Generic profile photo (not a real person)</li>
+                                <li><i class="fas fa-square"></i> No posts or very few posts</li>
+                                <li><i class="fas fa-square"></i> No mutual friends</li>
+                                <li><i class="fas fa-square"></i> Strange username (random numbers/letters)</li>
+                                <li><i class="fas fa-square"></i> Follows hundreds but has few followers</li>
+                                <li><i class="fas fa-square"></i> Sends unsolicited DMs</li>
+                            </ul>
+                            <p style="margin-top: 0.3rem; font-size: 0.85rem; color: #d9534f;">If any of these apply, remove the follower.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 6 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 6 — What Your Posts Say About You
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Post Content</th>
+                                        <th>What It Says About You</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>"Volunteered at the animal shelter today! 🐱"</td>
+                                        <td>Kind, compassionate, responsible</td>
+                                    </tr>
+                                    <tr>
+                                        <td>"Working hard on my science project. 💻"</td>
+                                        <td>Ambitious, hardworking</td>
+                                    </tr>
+                                    <tr>
+                                        <td>"Thankful for my family and friends. ❤️"</td>
+                                        <td>Grateful, positive</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #d9534f;">"I can't stand that teacher. She's so stupid."</td>
+                                        <td style="color: #d9534f;">Immature, disrespectful, negative</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #d9534f;">"Had so much fun at the party last night. 🍷"</td>
+                                        <td style="color: #d9534f;">May suggest underage drinking</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #d9534f;">"Who wants to skip class with me?"</td>
+                                        <td style="color: #d9534f;">Irresponsible, bad influence</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ACTIVITY ===== -->
+            <h2 class="section-title">
+                <span class="emoji">🧪</span> Activity: Privacy Settings Challenge
+            </h2>
+
+            <div class="activity-box">
+
+                <div class="activity-title">
+                    <i class="fas fa-rocket"></i> Let's Get Started!
+                </div>
+
+                <div class="activity-part">
+                    <i class="fas fa-pencil-alt"></i> Part 1: Mock Profile Setup
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Students work in pairs. Each pair receives a mock social media profile with the following information:
+                    </li>
+                </ul>
+                <div class="table-wrapper" style="border-color: rgba(255,255,255,0.1);">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Example Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Profile Photo</strong></td>
+                                <td>[Student's photo]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Full Name</strong></td>
+                                <td>Sarah Johnson</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Age</strong></td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>Bangkok, Thailand</td>
+                            </tr>
+                            <tr>
+                                <td><strong>School</strong></td>
+                                <td>Sarasas School</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Posts</strong></td>
+                                <td>Public photos with locations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bio</strong></td>
+                                <td>"Love life! Follow me! 😎"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Friends</strong></td>
+                                <td>500+ (many strangers)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Settings</strong></td>
+                                <td>Public account</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>The Challenge:</strong> Adjust the privacy settings to protect the user from:
+                        <br />
+                        <span style="display: inline-block; padding-left: 1.5rem; font-size: 0.88rem; color: #a8d8ea;">
+                            1. Strangers seeing posts &nbsp;|&nbsp;
+                            2. Location tracking &nbsp;|&nbsp;
+                            3. Data collection by third-party apps &nbsp;|&nbsp;
+                            4. Harassment and unwanted contact &nbsp;|&nbsp;
+                            5. Identity theft
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-file-alt"></i> Part 2: Privacy Settings Worksheet
+                </div>
+                <div class="table-wrapper" style="border-color: rgba(255,255,255,0.1);">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Setting</th>
+                                <th>Current Status</th>
+                                <th>Recommended Status</th>
+                                <th>Why?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Account Privacy</strong></td>
+                                <td>Public</td>
+                                <td style="color: #6bcb77;">Private</td>
+                                <td>Prevents strangers from seeing posts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Profile Photo Visibility</strong></td>
+                                <td>Public</td>
+                                <td style="color: #6bcb77;">Friends Only</td>
+                                <td>Protects against face recognition</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Post Visibility</strong></td>
+                                <td>Public</td>
+                                <td style="color: #6bcb77;">Friends Only</td>
+                                <td>Limits audience</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Location Services</strong></td>
+                                <td>On</td>
+                                <td style="color: #6bcb77;">Off</td>
+                                <td>Prevents location tracking</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Story Controls</strong></td>
+                                <td>Everyone</td>
+                                <td style="color: #6bcb77;">Close Friends</td>
+                                <td>Limits story viewers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Activity Status</strong></td>
+                                <td>On</td>
+                                <td style="color: #6bcb77;">Off</td>
+                                <td>Hides online status</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tagging Controls</strong></td>
+                                <td>Anyone</td>
+                                <td style="color: #6bcb77;">Friends Only</td>
+                                <td>Prevents unwanted tags</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Message Controls</strong></td>
+                                <td>Everyone</td>
+                                <td style="color: #6bcb77;">Friends Only</td>
+                                <td>Stops unwanted DMs</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bio</strong></td>
+                                <td>"Love life! Follow me!"</td>
+                                <td style="color: #6bcb77;">"Student. 📚"</td>
+                                <td>Removes personal details</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Friend List</strong></td>
+                                <td>Public</td>
+                                <td style="color: #6bcb77;">Friends Only</td>
+                                <td>Protects social connections</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-presentation"></i> Part 3: Presentation
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Each pair presents their "locked-down" profile to the class and explains:
+                        <br />
+                        <span style="display: inline-block; padding-left: 1.5rem; font-size: 0.88rem; color: #a8d8ea;">
+                            1. What settings they changed &nbsp;|&nbsp;
+                            2. Why they changed them &nbsp;|&nbsp;
+                            3. What risks they addressed &nbsp;|&nbsp;
+                            4. What they would do differently
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-comments"></i> Part 4: Class Discussion Questions
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "What surprised you most about the privacy settings you discovered?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Why do you think social media platforms default to 'Public' settings?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "How do you think your digital footprint might affect your future?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "What would you tell a younger student about social media safety?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Why is it important to only accept friend requests from people you know?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "How can you help your friends protect their privacy on social media?"
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== KEY TAKEAWAYS ===== -->
+            <h2 class="section-title">
+                <span class="emoji">📊</span> Key Takeaways Summary
+            </h2>
+
+            <div class="takeaway-grid">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🔒</span>
+                    <div class="takeaway-label">Privacy Settings</div>
+                    <div class="takeaway-desc">Always switch accounts to "Private" — it's your first line of defense</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🤔</span>
+                    <div class="takeaway-label">Sharing Information</div>
+                    <div class="takeaway-desc">Never share full name, address, school, or location publicly</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">👥</span>
+                    <div class="takeaway-label">Friend/Follow Management</div>
+                    <div class="takeaway-desc">Only accept requests from people you know in real life</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🚩</span>
+                    <div class="takeaway-label">Reporting &amp; Blocking</div>
+                    <div class="takeaway-desc">Don't hesitate to report and block harassers — it protects you and others</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📍</span>
+                    <div class="takeaway-label">Location Services</div>
+                    <div class="takeaway-desc">Turn off location tagging — nobody needs to know where you are</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">💭</span>
+                    <div class="takeaway-label">Think Before Posting</div>
+                    <div class="takeaway-desc">Ask: "Would I want my grandmother/employer/teacher to see this?"</div>
+                </div>
+            </div>
+
+            <!-- ===== REFLECTION & HOMEWORK ===== -->
+            <h2 class="section-title">
+                <span class="emoji">📝</span> Student Reflection Questions
+            </h2>
+
+            <div class="reflection-box">
+                <ul>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What is one change you'll make to your social media settings after today's lesson?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Why is it dangerous to share your school name or location online?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        How can you tell if a friend request is from a fake account?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What should you do if someone sends you a threatening message online?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Why is your digital footprint important for your future?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        How can you help a friend who is oversharing on social media?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What are three things you should never post on social media?
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">
+                <span class="emoji">🏠</span> Homework Assignment
+            </h2>
+
+            <div class="reflection-box">
+                <div class="hw-item">
+                    <i class="fas fa-search"></i> 1. Privacy Audit
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Check the privacy settings on ALL your social media accounts. Write down which ones were public and which were private. Change any public accounts to private.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-trash-alt"></i> 2. Post Cleanup
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Scroll through your recent posts (last 6 months). Delete or hide any posts that reveal your location, contain personal information, are embarrassing, or you wouldn't want a future employer to see.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-users-slash"></i> 3. Follower Cleanup
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Go through your followers/friends list. Remove any accounts you don't know in real life.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-users"></i> 4. Family Mission
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Help one family member check and adjust their social media privacy settings. Teach them what you learned.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-pen"></i> 5. Journal Entry
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Write 3 sentences about how you feel after auditing your social media privacy. Are you safer? More confident? What surprised you?
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== FOOTER ===== -->
+            <div class="page-footer">
+                <i class="fas fa-shield-alt"></i>
+                Stay safe &bull; Lock it down &bull; Think before you post
+                <br />
+                <span style="font-size: 0.8rem; opacity: 0.7;">
+                    <i class="fas fa-bible"></i>
+                    "Whatever you do, work heartily, as for the Lord and not for men" — Colossians 3:23
+                </span>
+            </div>
+
+        </div>
+        <!-- END MAIN CARD -->
+
+    </div>
+    <!-- END CONTAINER -->
+
+</body>
+</html>

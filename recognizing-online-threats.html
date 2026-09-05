@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recognizing Online Threats</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f5fe;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem 1.5rem;
+            color: #1a2a3e;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6d9bf0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            background: #e8effa;
+            border: 1px solid #d4e2f7;
+            transition: 0.2s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link:hover {
+            background: #d4e2f7;
+            border-color: #6d9bf0;
+            transform: translateX(-3px);
+        }
+
+        /* ===== MAIN CARD ===== */
+        .main-card {
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 2.5rem 3rem;
+            border: 1px solid #d4e2f7;
+            box-shadow: 0 8px 30px rgba(109, 155, 240, 0.08);
+        }
+
+        @media (max-width: 600px) {
+            .main-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e8effa;
+        }
+
+        .lesson-header .week-badge {
+            display: inline-block;
+            background: #d9534f;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .lesson-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .lesson-header h1 i {
+            color: #d9534f;
+        }
+
+        .lesson-header .subtitle {
+            color: #4a6a8a;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== INTRODUCTION ===== */
+        .intro-box {
+            background: #f5f9ff;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid #d9534f;
+        }
+
+        .intro-box .quote-icon {
+            color: #d9534f;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .intro-box p {
+            font-size: 1.05rem;
+            color: #1a2a3e;
+            line-height: 1.9;
+        }
+
+        .intro-box strong {
+            color: #d9534f;
+        }
+
+        @media (max-width: 600px) {
+            .intro-box {
+                padding: 1.2rem 1.2rem;
+            }
+            .intro-box p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            margin: 2.5rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .section-title i {
+            color: #6d9bf0;
+        }
+
+        .section-title .emoji {
+            font-size: 1.8rem;
+        }
+
+        .sub-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            margin: 1.8rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sub-section-title i {
+            color: #6d9bf0;
+            font-size: 1rem;
+        }
+
+        /* ===== TOPIC CARDS ===== */
+        .topic-card {
+            background: #f5f9ff;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #d4e2f7;
+            transition: 0.2s ease;
+        }
+
+        .topic-card:hover {
+            border-color: #d9534f;
+            box-shadow: 0 4px 12px rgba(217, 83, 79, 0.1);
+        }
+
+        .topic-card .topic-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .topic-title i {
+            color: #d9534f;
+        }
+
+        .topic-card .topic-desc {
+            font-size: 0.95rem;
+            color: #2a4a6a;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .topic-example {
+            font-size: 0.88rem;
+            color: #4a6a8a;
+            background: #e8effa;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #d9534f;
+            margin-top: 0.5rem;
+        }
+
+        .topic-card .topic-example i {
+            color: #d9534f;
+            margin-right: 0.4rem;
+        }
+
+        .topic-card .topic-example code {
+            background: #1a2a3e;
+            color: #ffd93d;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.82rem;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem 0;
+            border-radius: 12px;
+            border: 1px solid #d4e2f7;
+        }
+
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+
+        .table-wrapper table th {
+            background: #d9534f;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+            text-align: left;
+        }
+
+        .table-wrapper table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #e8effa;
+            color: #2a4a6a;
+        }
+
+        .table-wrapper table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-wrapper table tr:nth-child(even) td {
+            background: #f5f9ff;
+        }
+
+        .table-wrapper table .bad {
+            color: #d9534f;
+            font-weight: 600;
+        }
+
+        .table-wrapper table .good {
+            color: #5cb85c;
+            font-weight: 600;
+        }
+
+        /* ===== EXAMPLES BOX ===== */
+        .examples-box {
+            background: #f5f9ff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d4e2f7;
+        }
+
+        .example-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #d4e2f7;
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .example-item .example-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .example-item .example-title i {
+            color: #d9534f;
+        }
+
+        .example-item .example-content {
+            font-size: 0.95rem;
+            color: #2a4a6a;
+            padding-left: 2rem;
+        }
+
+        .example-item .example-content .bad {
+            color: #d9534f;
+            font-weight: 600;
+        }
+
+        .example-item .example-content .good {
+            color: #5cb85c;
+            font-weight: 600;
+        }
+
+        .example-item .example-content code {
+            background: #e8effa;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #d9534f;
+        }
+
+        .example-item .example-content .password-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .example-item .example-content .password-list code {
+            background: #1a2a3e;
+            color: #ffd93d;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .examples-box {
+                padding: 1rem 1.2rem;
+            }
+            .example-item .example-content {
+                padding-left: 0;
+            }
+        }
+
+        /* ===== DANGER / WARNING BOX ===== */
+        .danger-box {
+            background: linear-gradient(135deg, #2d0a0a, #4a1515);
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.2rem 0;
+            color: #fff;
+            border-left: 6px solid #ff6b6b;
+        }
+
+        .danger-box i {
+            color: #ff6b6b;
+            margin-right: 0.5rem;
+        }
+
+        .danger-box code {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd93d;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88rem;
+        }
+
+        /* ===== ACTIVITY BOX ===== */
+        .activity-box {
+            background: linear-gradient(135deg, #1a2a3e, #0f3460);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin: 1.5rem 0;
+            color: #fff;
+            border: 1px solid #d9534f;
+        }
+
+        .activity-box .activity-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-box .activity-title i {
+            color: #ffd93d;
+        }
+
+        .activity-box .activity-part {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffd93d;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .activity-box .activity-part:first-of-type {
+            margin-top: 0;
+        }
+
+        .activity-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .activity-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #d4e2f7;
+        }
+
+        .activity-box ul li i {
+            color: #ffd93d;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .activity-box ul li strong {
+            color: #fff;
+        }
+
+        .activity-box table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+            color: #d4e2f7;
+        }
+
+        .activity-box table th {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.8rem;
+            text-align: left;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .activity-box table td {
+            padding: 0.4rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-box table .good {
+            color: #6bcb77;
+        }
+
+        .activity-box table .bad {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 600px) {
+            .activity-box {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        /* ===== KEY TAKEAWAYS ===== */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .takeaway-item {
+            background: #f5f9ff;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #d4e2f7;
+            text-align: center;
+        }
+
+        .takeaway-item .takeaway-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .takeaway-item .takeaway-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #1a2a3e;
+        }
+
+        .takeaway-item .takeaway-desc {
+            font-size: 0.8rem;
+            color: #4a6a8a;
+        }
+
+        @media (max-width: 700px) {
+            .takeaway-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .takeaway-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== REFLECTION / HOMEWORK ===== */
+        .reflection-box {
+            background: #f5f9ff;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d4e2f7;
+        }
+
+        .reflection-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .reflection-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #2a4a6a;
+        }
+
+        .reflection-box ul li i {
+            color: #d9534f;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .reflection-box .hw-item {
+            font-weight: 600;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .reflection-box .hw-item i {
+            color: #d9534f;
+        }
+
+        /* ===== FOOTER ===== */
+        .page-footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e8effa;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a6a8a;
+        }
+
+        .page-footer i {
+            color: #d9534f;
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            .back-link {
+                display: none;
+            }
+            body {
+                background: #fff;
+                padding: 0.3in;
+            }
+            .main-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                border-radius: 12px;
+            }
+            .topic-card:hover {
+                box-shadow: none;
+            }
+            .activity-box {
+                background: #1a2a3e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .danger-box {
+                background: #2d0a0a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .table-wrapper table th {
+                background: #d9534f !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- BACK BUTTON -->
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Lessons
+        </a>
+
+        <!-- MAIN CARD -->
+        <div class="main-card">
+
+            <!-- HEADER -->
+            <header class="lesson-header">
+                <span class="week-badge"><i class="fas fa-exclamation-triangle"></i> Digital Safety</span>
+                <h1>
+                    <i class="fas fa-shield-halved"></i>
+                    Recognizing Online Threats
+                </h1>
+                <p class="subtitle">
+                    <i class="fas fa-fish" style="color: #d9534f;"></i>
+                    Spot the bait before you bite
+                </p>
+            </header>
+
+            <!-- ===== INTRODUCTION ===== -->
+            <div class="intro-box">
+                <p>
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <strong>You receive an email that looks exactly like it's from your school.</strong>
+                    It has the school logo, the principal's name, and a professional design.
+                    It says: <em>"Your account has been compromised. Click here immediately to verify your identity or your account will be permanently deleted within 24 hours."</em>
+                    The logo looks real, the language sounds official, and you're scared.
+                    But there's one problem — <strong>it's a trap</strong>.
+                    This is called <strong>phishing</strong>, and it tricks millions of people into giving away their passwords, credit card numbers, and personal data every single year.
+                    In 2024, phishing attacks increased by <strong>40%</strong> worldwide, and teenagers are one of the most targeted groups because they use so many online services and social media platforms.
+                    Cybercriminals know that young people are often more trusting and less experienced at spotting scams.
+                    Today, you'll learn to <strong>spot the bait before you bite</strong> — and protect yourself from the growing danger of online threats.
+                </p>
+            </div>
+
+            <!-- ===== TOPICS TO COVER ===== -->
+            <h2 class="section-title">
+                <span class="emoji">📚</span>
+            </h2>
+
+            <!-- Topic 1: Phishing -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-fish"></i>Phishing — The Digital Bait
+                </div>
+                <div class="topic-desc">
+                    Phishing is a type of cyberattack where criminals send fraudulent emails, text messages (smishing), or phone calls (vishing) designed to trick you into revealing sensitive information. These messages often create a sense of <strong>urgency</strong>, <strong>fear</strong>, or <strong>excitement</strong> to make you act without thinking.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #d9534f;"></i> Key Characteristics of Phishing Attempts:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Characteristic</th>
+                                <th>What It Looks Like</th>
+                                <th>Why It Works</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Urgency</strong></td>
+                                <td>"Act now!" "Your account will be closed in 24 hours!"</td>
+                                <td>Prevents you from thinking critically</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fear</strong></td>
+                                <td>"Your account has been hacked!" "We detected suspicious activity!"</td>
+                                <td>Makes you panic and act quickly</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Too Good to Be True</strong></td>
+                                <td>"You won an iPhone!" "You've been selected for a free trip!"</td>
+                                <td>Tempts you with excitement</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Generic Greetings</strong></td>
+                                <td>"Dear Customer," "Dear User," (no name)</td>
+                                <td>Sent to thousands at once</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Suspicious Links</strong></td>
+                                <td>Hover over the link — it doesn't match the real domain</td>
+                                <td>Tricks you into visiting fake websites</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Poor Grammar/Spelling</strong></td>
+                                <td>"We have suspened your account" (misspelled words)</td>
+                                <td>Often from non-native speakers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Requests Personal Info</strong></td>
+                                <td>"Verify your password," "Confirm your credit card"</td>
+                                <td>Legitimate companies NEVER ask for this via email</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 0.8rem;">
+                    <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-list" style="color: #d9534f;"></i>
+                        Types of Phishing:
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>What It Is</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Email Phishing</strong></td>
+                                    <td>Fake emails pretending to be from legitimate companies</td>
+                                    <td>"Your bank account has been frozen. Click here to verify."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Spear Phishing</strong></td>
+                                    <td>Targeted attacks aimed at specific individuals</td>
+                                    <td>A scammer pretends to be your teacher and emails you asking for your password</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Smishing</strong></td>
+                                    <td>Phishing via SMS/text messages</td>
+                                    <td>"Your package could not be delivered. Click this link to reschedule."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Vishing</strong></td>
+                                    <td>Phishing via voice calls (phone)</td>
+                                    <td>A scammer calls pretending to be from the tax office demanding payment</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Whaling</strong></td>
+                                    <td>Spear phishing targeting high-profile individuals</td>
+                                    <td>A scammer impersonates the school principal asking the IT department for access</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student receives an email that looks exactly like it's from Instagram:
+                    <br />
+                    <em style="color: #d9534f;">"🚨 URGENT: Your Instagram account will be permanently deleted in 24 hours due to a violation of our Terms of Service. Verify your identity now: http://instagr4m-security.com/verify"</em>
+                    <br />
+                    ❌ The URL is not Instagram's real domain (<code>instagr4m</code> instead of <code>instagram</code>)
+                    <br />
+                    ❌ It creates urgency ("24 hours!")
+                    <br />
+                    ❌ It asks for verification (Instagram never does this via email)
+                    <br />
+                    <span class="good" style="color: #5cb85c;">✅ Correct Response:</span> Delete the email. Report it as spam. Never click the link.
+                </div>
+            </div>
+
+            <!-- Topic 2: Malware -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-bug"></i>Malware &amp; Viruses — The Hidden Invaders
+                </div>
+                <div class="topic-desc">
+                    <strong>Malware</strong> (short for <strong>malicious software</strong>) is any software intentionally designed to cause damage to a computer, server, client, or computer network. <strong>Viruses</strong> are a type of malware that spread by attaching themselves to legitimate programs.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #d9534f;"></i> Types of Malware:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>What It Does</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Virus</strong></td>
+                                <td>Attaches to clean files and spreads to other computers</td>
+                                <td>Opening an infected email attachment that infects your entire system</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ransomware</strong></td>
+                                <td>Locks your files and demands payment to unlock them</td>
+                                <td>A pop-up says: "Your files are encrypted. Pay $500 in Bitcoin to recover them."</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spyware</strong></td>
+                                <td>Secretly monitors your activity and steals information</td>
+                                <td>Records every keystroke to capture passwords and credit card numbers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Trojan</strong></td>
+                                <td>Disguises itself as legitimate software but has malicious code</td>
+                                <td>Downloading a "free game" that actually gives hackers remote access</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Worm</strong></td>
+                                <td>Self-replicates and spreads across networks without user interaction</td>
+                                <td>A worm spreads through your school's network, infecting every computer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adware</strong></td>
+                                <td>Displays unwanted advertisements and pop-ups</td>
+                                <td>Constantly bombarded with ads that slow down your computer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rootkit</strong></td>
+                                <td>Gives hackers deep system access, hiding from antivirus</td>
+                                <td>Hackers can control your computer remotely without you knowing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 0.8rem;">
+                    <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-list" style="color: #d9534f;"></i>
+                        How Malware Spreads:
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>How It Works</th>
+                                    <th>Prevention</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Email Attachments</strong></td>
+                                    <td>Attachments in phishing emails</td>
+                                    <td>Never open attachments from unknown senders</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Malicious Downloads</strong></td>
+                                    <td>Downloading software from untrusted sites</td>
+                                    <td>Only download from official app stores or verified sites</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Infected USB Drives</strong></td>
+                                    <td>Plugging in a USB that contains malware</td>
+                                    <td>Scan USB drives before opening them</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Drive-By Downloads</strong></td>
+                                    <td>Malware automatically downloads when visiting a compromised website</td>
+                                    <td>Keep your browser and antivirus updated</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Peer-to-Peer Networks</strong></td>
+                                    <td>Sharing files on P2P networks</td>
+                                    <td>Avoid illegal file-sharing sites</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="margin-top: 0.8rem;">
+                    <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-exclamation-triangle" style="color: #d9534f;"></i>
+                        Symptoms Your Device May Have Malware:
+                    </div>
+                    <ul style="padding-left: 2rem; color: #2a4a6a; font-size: 0.92rem; list-style-type: none;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            Computer runs very slowly
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            Frequent crashes or error messages
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            Pop-up ads appearing constantly
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            Your browser homepage changes unexpectedly
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            New toolbars or extensions you didn't install
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            Files become inaccessible or encrypted
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">⚠️</span>
+                            You notice unexplained network activity
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student is playing an online game and sees an ad: <strong>"FREE ROBUX — Get unlimited Robux now!"</strong>
+                    They click the link and download a "Robux generator." Instead of receiving free Robux, they have just installed <strong>keylogging spyware</strong> that records every keystroke they type — including their passwords, bank details, and personal messages. The hacker now has access to everything.
+                </div>
+            </div>
+
+            <!-- Topic 3: Fake Websites -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-globe"></i>Fake Websites — The Imposters
+                </div>
+                <div class="topic-desc">
+                    Fake websites (also called <strong>spoofed</strong> or <strong>clone</strong> websites) are designed to look identical to legitimate websites. Their purpose is to trick you into entering your login credentials, credit card information, or personal data. These sites are often used in phishing campaigns.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #d9534f;"></i> How to Spot a Fake Website:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Warning Sign</th>
+                                <th>What to Look For</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Misspelled Domain</strong></td>
+                                <td>One character different from the real site</td>
+                                <td><code>g00gle.com</code> (zero instead of o) vs <code>google.com</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Unusual Domain Extensions</strong></td>
+                                <td>Unknown or weird extensions</td>
+                                <td><code>amazon.shop247.org</code> instead of <code>amazon.com</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>No HTTPS/Padlock</strong></td>
+                                <td>URL starts with <code>http://</code> not <code>https://</code></td>
+                                <td><code>http://paypal-security.com</code> (no padlock)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Design Errors</strong></td>
+                                <td>Poor layout, blurry logos, broken links</td>
+                                <td>The logo looks slightly stretched or pixelated</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Requests Personal Info</strong></td>
+                                <td>Asks for passwords, PINs, or credit card numbers</td>
+                                <td>"Enter your password to confirm your identity"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pop-ups Immediately</strong></td>
+                                <td>Pop-ups appear as soon as you visit</td>
+                                <td>"You are the 1,000th visitor! Claim your prize!"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 0.8rem;">
+                    <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-list" style="color: #d9534f;"></i>
+                        Common Typosquatting Examples:
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Real Website</th>
+                                    <th>Fake Website (Typosquat)</th>
+                                    <th>How to Catch It</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>google.com</code></td>
+                                    <td><code>g00gle.com</code> (zero instead of o)</td>
+                                    <td>Look closely at the letter 'o'</td>
+                                </tr>
+                                <tr>
+                                    <td><code>facebook.com</code></td>
+                                    <td><code>faceb00k.com</code> (zero instead of o)</td>
+                                    <td>Same trick with the letter 'o'</td>
+                                </tr>
+                                <tr>
+                                    <td><code>netflix.com</code></td>
+                                    <td><code>netfIix.com</code> (uppercase I instead of l)</td>
+                                    <td>The 'l' looks slightly different</td>
+                                </tr>
+                                <tr>
+                                    <td><code>youtube.com</code></td>
+                                    <td><code>youtubeb.com</code> (extra 'b')</td>
+                                    <td>Extra letter at the end</td>
+                                </tr>
+                                <tr>
+                                    <td><code>paypal.com</code></td>
+                                    <td><code>paypa1.com</code> (one instead of l)</td>
+                                    <td>The 'l' is replaced with a number</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student wants to log into Netflix. They search "Netflix login" on Google and click the first sponsored result. The URL is <code>https://www.netfIix.com</code> (notice the uppercase "I" instead of a lowercase "l"). The site looks identical to Netflix. The student enters their email and password. The site says "Error, please try again." Meanwhile, the hacker has just captured their Netflix credentials and is now using them.
+                </div>
+            </div>
+
+            <!-- Topic 4: Pop-up Scams -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-window-maximize"></i>Pop-up Scams — The Annoying Danger
+                </div>
+                <div class="topic-desc">
+                    Pop-up scams are fake alerts that appear suddenly on your screen, often claiming that your computer is infected, your files are corrupted, or you've won a prize. These pop-ups are designed to scare you into calling a "tech support" number or clicking a link that installs malware.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #d9534f;"></i> Common Pop-up Scams:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>What It Says</th>
+                                <th>The Trap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Fake Virus Alert</strong></td>
+                                <td>"⚠️ Your computer is infected! Call 1-800-XXX-XXXX for immediate support."</td>
+                                <td>The "support" is a scammer who will ask for money or remote access</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prize Scam</strong></td>
+                                <td>"🎉 Congratulations! You've won a free iPhone!"</td>
+                                <td>Clicking installs malware or captures your personal data</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Browser Hijack</strong></td>
+                                <td>"🚨 Your browser is out of date! Click here to update."</td>
+                                <td>The "update" is actually malware</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fake Security Scan</strong></td>
+                                <td>"🔍 Scanning your computer... Found 34 viruses! Click to remove."</td>
+                                <td>The "removal" tool is malware itself</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Suspicious Activity</strong></td>
+                                <td>"🔒 Suspicious activity detected on your bank account. Click here to secure it."</td>
+                                <td>The link goes to a fake bank login page</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 0.8rem;">
+                    <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-flag" style="color: #d9534f;"></i>
+                        Red Flags for Pop-up Scams:
+                    </div>
+                    <ul style="padding-left: 2rem; color: #2a4a6a; font-size: 0.92rem; list-style-type: none;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">🚩</span>
+                            They create urgency — "Do this NOW or you'll lose everything!"
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">🚩</span>
+                            They use scare tactics — "Your computer is DANGEROUSLY infected!"
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">🚩</span>
+                            They ask you to call a number — Legitimate companies rarely ask you to call from a pop-up
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">🚩</span>
+                            They request payment — "Pay $99 now to fix the problem"
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span style="color: #d9534f;">🚩</span>
+                            They look unprofessional — Bad grammar, blurry graphics, strange fonts
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 0.8rem;">
+                    <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check-circle" style="color: #5cb85c;"></i>
+                        What to Do When You See a Suspicious Pop-up:
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1</strong></td>
+                                    <td><span class="bad">DON'T CLICK ANYTHING</span> — Do not click "OK," "Cancel," "X," or anything else</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2</strong></td>
+                                    <td><strong>Close the tab</strong> — Use Task Manager (Ctrl+Alt+Delete) to force-close the browser if needed</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3</strong></td>
+                                    <td><strong>Do not call the number</strong> — Never call the number displayed</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4</strong></td>
+                                    <td><strong>Do not pay money</strong> — No legitimate company demands payment via pop-up</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5</strong></td>
+                                    <td><strong>Report it</strong> — Tell a parent, teacher, or IT professional</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student is playing a free online game. A pop-up suddenly appears:
+                    <br />
+                    <em style="color: #d9534f;">"⚠️ YOUR PC IS INFECTED WITH 5 VIRUSES! Your personal data is at risk. Call Microsoft Support at 1-800-XXX-XXXX immediately to protect your computer."</em>
+                    <br />
+                    The student panics and calls the number. The person on the phone sounds professional and asks for remote access to "fix" the problem. Instead, they steal personal information and demand $300 for a "security subscription" that doesn't exist.
+                </div>
+            </div>
+
+            <!-- Topic 5: Social Engineering (BONUS) -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-user-secret"></i>Social Engineering — The Human Hack
+                </div>
+                <div class="topic-desc">
+                    Social engineering is the psychological manipulation of people to get them to reveal confidential information or perform actions. Instead of hacking computers, hackers hack humans.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #d9534f;"></i> Types of Social Engineering:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>How It Works</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Pretexting</strong></td>
+                                <td>Creating a false scenario to get information</td>
+                                <td>A scammer pretends to be from IT support and asks for your password</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Baiting</strong></td>
+                                <td>Offering something tempting to get you to act</td>
+                                <td>A free USB drive left in the school library that contains malware</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tailgating</strong></td>
+                                <td>Following someone into a restricted area</td>
+                                <td>A stranger asks you to hold the door open to a secure area</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quid Pro Quo</strong></td>
+                                <td>Offering a service in exchange for information</td>
+                                <td>"I'll help you with your homework if you give me your Google login"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Impersonation</strong></td>
+                                <td>Pretending to be someone trustworthy</td>
+                                <td>A scammer pretends to be the principal and emails teachers asking for sensitive data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student receives a phone call:
+                    <br />
+                    <em>"Hello, this is the IT department. We've detected suspicious activity on your school account. We need you to verify your password so we can secure it."</em>
+                    <br />
+                    The student gives their password. The caller is not from IT — they're a social engineer who just stole the student's credentials.
+                </div>
+            </div>
+
+            <!-- ===== EXAMPLES FOR STUDENTS ===== -->
+            <h2 class="section-title">
+                <span class="emoji">✅</span> Expanded Examples for Students
+            </h2>
+
+            <div class="examples-box">
+                <!-- Example 1 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 1 — Real vs. Phishing Email
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Real Email (✅)</th>
+                                        <th>Phishing Email (❌)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Sender Address</strong></td>
+                                        <td><code>admin@schoolname.edu</code></td>
+                                        <td><code>admin@schooI-name.com</code> (notice the uppercase I)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Greeting</strong></td>
+                                        <td>"Dear [Student's Full Name],"</td>
+                                        <td>"Dear Student," (generic)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Content</strong></td>
+                                        <td>"Your report card is now available on the school portal."</td>
+                                        <td>"URGENT: Your school account has been suspended!"</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Link</strong></td>
+                                        <td><code>https://portal.schoolname.edu/student</code></td>
+                                        <td><code>http://portaI.schooI-name.com/verify</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Urgency</strong></td>
+                                        <td>None — simply informs you</td>
+                                        <td>HIGH — "IMMEDIATELY" and "URGENT"</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top: 0.5rem;">
+                            <span class="good">✅ Real Email:</span> <em>"Dear Sarah, your report card is now available on the school portal. Please log in at https://portal.schoolname.edu to view your grades."</em>
+                        </p>
+                        <p>
+                            <span class="bad">❌ Phishing Email:</span> <em>"URGENT: Your school account has been suspended. Click here to reactivate: https://portaI.schooI-name.com"</em>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 2 — Fake vs. Real Website
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>URL</th>
+                                        <th>Safe to Enter Info?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="good">✅ Real Google</span></td>
+                                        <td><code>https://www.google.com</code></td>
+                                        <td>Yes — 🔒 padlock, correct spelling</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bad">❌ Fake Google</span></td>
+                                        <td><code>https://www.g00gle.com</code></td>
+                                        <td>No — zero instead of 'o' steals login</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="good">✅ Real Paypal</span></td>
+                                        <td><code>https://www.paypal.com</code></td>
+                                        <td>Yes — 🔒 padlock, correct spelling</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bad">❌ Fake Paypal</span></td>
+                                        <td><code>https://www.paypa1.com</code></td>
+                                        <td>No — one instead of 'l' steals login</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="good">✅ Real Netflix</span></td>
+                                        <td><code>https://www.netflix.com</code></td>
+                                        <td>Yes — 🔒 padlock, correct spelling</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bad">❌ Fake Netflix</span></td>
+                                        <td><code>https://www.netfIix.com</code></td>
+                                        <td>No — uppercase I instead of l steals login</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 3 — Pop-up Scam
+                    </div>
+                    <div class="example-content">
+                        <p><strong>Scenario:</strong> A student is playing an online game. A pop-up suddenly appears:</p>
+                        <blockquote style="background: #e8effa; padding: 0.5rem 1rem; border-radius: 8px; border-left: 4px solid #d9534f; margin: 0.5rem 0;">
+                            <em>"🎉 CONGRATULATIONS! You are the 1,000,000th visitor! You've won a FREE iPhone 16. Click here to claim your prize!"</em>
+                        </blockquote>
+                        <p><strong>Why It's a Scam:</strong></p>
+                        <ul style="padding-left: 1.2rem; list-style-type: none;">
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                Free prizes are almost always scams
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                Real giveaways don't require you to click random links
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                It creates excitement to make you act without thinking
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                "Click here to claim" often leads to malware or phishing sites
+                            </li>
+                        </ul>
+                        <p><span class="good">✅ Correct Response:</span> Close the pop-up immediately. Do not click anything. Report the site to an adult.</p>
+                    </div>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 4 — Social Engineering in Action
+                    </div>
+                    <div class="example-content">
+                        <p><strong>Scenario:</strong> A student receives a text message:</p>
+                        <blockquote style="background: #e8effa; padding: 0.5rem 1rem; border-radius: 8px; border-left: 4px solid #d9534f; margin: 0.5rem 0;">
+                            <em>"Hi, this is your friend Sarah. I'm locked out of my Google account and need to verify my identity. Can you send me the verification code you received? I'll send it back to you."</em>
+                        </blockquote>
+                        <p><strong>Why It's a Trap:</strong></p>
+                        <ul style="padding-left: 1.2rem; list-style-type: none;">
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                Your friend would not ask for a verification code via text
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                The code is for YOUR account — sending it gives them access
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">❌</span>
+                                Hackers often impersonate friends or family
+                            </li>
+                        </ul>
+                        <p><span class="good">✅ Correct Response:</span> Do NOT send the code. Call your friend to verify it's really them. Report the message.</p>
+                    </div>
+                </div>
+
+                <!-- Example 5 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 5 — Malware Prevention
+                    </div>
+                    <div class="example-content">
+                        <p><strong>Scenario:</strong> A student downloads a "free" video game from a torrent website. After installation:</p>
+                        <ul style="padding-left: 1.2rem; list-style-type: none;">
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">⚠️</span>
+                                Computer runs much slower than normal
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">⚠️</span>
+                                Pop-ups appear even when browser is closed
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">⚠️</span>
+                                Homepage changed without permission
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                                <span style="color: #d9534f;">⚠️</span>
+                                Antivirus software is disabled
+                            </li>
+                        </ul>
+                        <p><strong>What to Do:</strong></p>
+                        <ol style="padding-left: 1.2rem;">
+                            <li>Run a full antivirus scan immediately</li>
+                            <li>Disconnect from the internet</li>
+                            <li>Restart the computer in Safe Mode</li>
+                            <li>Run malware removal tools (Malwarebytes, Windows Defender)</li>
+                            <li>Change all passwords from a different, clean device</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ACTIVITY ===== -->
+            <h2 class="section-title">
+                <span class="emoji">🧪</span> Activity: Spot-the-Phishing Challenge
+            </h2>
+
+            <div class="activity-box">
+
+                <div class="activity-title">
+                    <i class="fas fa-rocket"></i> Let's Get Started!
+                </div>
+
+                <div class="activity-part">
+                    <i class="fas fa-pencil-alt"></i> Part 1: Scenario Cards (10 Examples)
+                </div>
+                <p style="color: #d4e2f7; font-size: 0.92rem; margin-bottom: 0.5rem;">
+                    The teacher shows 10 examples of emails, texts, and websites. Students vote using colored cards or a polling app. Then discuss each one.
+                </p>
+                <div class="table-wrapper" style="border-color: rgba(255,255,255,0.1);">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Scenario</th>
+                                <th>Real or Fake?</th>
+                                <th>Why?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>"Dear Customer, your Amazon account has been locked. Verify your identity here: https://amzn-secure.com"</td>
+                                <td style="color: #ff6b6b;">❌ Fake</td>
+                                <td>Amazon doesn't send verification links via email</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>"Hi, your package is out for delivery. Track it here: https://tracking.dhl.com"</td>
+                                <td style="color: #6bcb77;">✅ Real</td>
+                                <td>Legitimate tracking link</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>"Congratulations! You've won a free vacation. Click here to claim: http://free-trip.co"</td>
+                                <td style="color: #ff6b6b;">❌ Fake</td>
+                                <td>Too good to be true, suspicious domain</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>"Password reset request for your Instagram account. If this wasn't you, ignore this email."</td>
+                                <td style="color: #6bcb77;">✅ Real</td>
+                                <td>Instagram sends this when you request a reset</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>"Your school has posted a new announcement. View it here: https://portal.schoolname.edu"</td>
+                                <td style="color: #6bcb77;">✅ Real</td>
+                                <td>Legitimate school communication</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>"⚠️ Your computer is infected! Call Microsoft Support now: 1-800-XXX-XXXX"</td>
+                                <td style="color: #ff6b6b;">❌ Fake</td>
+                                <td>Legitimate companies don't show this in pop-ups</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>"Your bank account has been compromised. Click here to secure it: http://bank-security.net"</td>
+                                <td style="color: #ff6b6b;">❌ Fake</td>
+                                <td>Bank would never send this via email, suspicious domain</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>"📢 Your Google account sign-in was attempted from an unknown device. If this was you, click 'Yes': https://accounts.google.com"</td>
+                                <td style="color: #6bcb77;">✅ Real</td>
+                                <td>Real Google security alert</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>"Hi, this is your teacher. I need your password to submit your project. Send it quickly!"</td>
+                                <td style="color: #ff6b6b;">❌ Fake</td>
+                                <td>Teachers never ask for passwords</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>"Hello, you've received a message from a classmate. Read it here: https://messenger.com"</td>
+                                <td style="color: #6bcb77;">✅ Real</td>
+                                <td>Legitimate messenger link</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-file-alt"></i> Part 2: Phishing Spotting Worksheet
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Students receive a worksheet with 5 more scenarios
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        For each scenario, identify:
+                        <br />
+                        <span style="display: inline-block; padding-left: 1.5rem; font-size: 0.88rem; color: #a8d8ea;">
+                            1. Is this real or phishing? &nbsp;|&nbsp;
+                            2. What are the red flags? &nbsp;|&nbsp;
+                            3. What should you do?
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-comments"></i> Part 3: Class Discussion Questions
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Why do you think teenagers are a popular target for scammers?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Have you or someone you know ever received a phishing attempt? What happened?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "What was the most convincing fake example you saw today? Why did it fool you?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "How can you protect your family members from falling for these scams?"
+                    </li>
+                </ul>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-theater-masks"></i> Part 4: Role-Play Activity
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Scenario A — Phishing Call:</strong> Scammer calls pretending to be IT support asking for a password. Victim must respond appropriately.
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Scenario B — Suspicious Text:</strong> Scammer texts pretending to be a friend asking for a verification code. Victim must respond appropriately.
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Scenario C — Fake Email:</strong> Scammer reads a phishing email aloud. Victim must respond appropriately.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== SUMMARY TABLE ===== -->
+            <h2 class="section-title">
+                <span class="emoji">🛡️</span> Summary: Online Threats at a Glance
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Threat</th>
+                            <th>What It Is</th>
+                            <th>How to Spot It</th>
+                            <th>How to Protect Yourself</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Phishing</strong></td>
+                            <td>Fake emails/texts to steal info</td>
+                            <td>Urgency, generic greetings, suspicious links</td>
+                            <td>Never click links, verify sender, report</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Malware</strong></td>
+                            <td>Malicious software that harms devices</td>
+                            <td>Slow computer, pop-ups, crashes</td>
+                            <td>Install antivirus, avoid suspicious downloads</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fake Websites</strong></td>
+                            <td>Cloned websites that steal data</td>
+                            <td>Misspelled domains, no HTTPS, poor design</td>
+                            <td>Check URL carefully, look for padlock</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pop-up Scams</strong></td>
+                            <td>Fake alerts claiming infection or prize</td>
+                            <td>Scare tactics, requests to call numbers</td>
+                            <td>Never click, force-close browser</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Social Engineering</strong></td>
+                            <td>Manipulating people to reveal info</td>
+                            <td>Requests for passwords or personal data</td>
+                            <td>Always verify identity, be skeptical</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== KEY TAKEAWAYS ===== -->
+            <h2 class="section-title">
+                <span class="emoji">📊</span> Key Takeaways Summary
+            </h2>
+
+            <div class="takeaway-grid">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🎣</span>
+                    <div class="takeaway-label">Phishing</div>
+                    <div class="takeaway-desc">Always check the sender's email and hover over links before clicking</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🐛</span>
+                    <div class="takeaway-label">Malware</div>
+                    <div class="takeaway-desc">Only download software from official, trusted sources</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🌐</span>
+                    <div class="takeaway-label">Fake Websites</div>
+                    <div class="takeaway-desc">Look carefully at the URL — one character can make a huge difference</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🪟</span>
+                    <div class="takeaway-label">Pop-up Scams</div>
+                    <div class="takeaway-desc">Legitimate companies do not use pop-ups to ask for personal information</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🧠</span>
+                    <div class="takeaway-label">Social Engineering</div>
+                    <div class="takeaway-desc">If someone asks for your password, STOP. No legitimate person will ever ask for it</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">💡</span>
+                    <div class="takeaway-label">Golden Rule</div>
+                    <div class="takeaway-desc">If it seems too good to be true, it probably is. Trust your gut!</div>
+                </div>
+            </div>
+
+            <!-- ===== REFLECTION & HOMEWORK ===== -->
+            <h2 class="section-title">
+                <span class="emoji">📝</span> Student Reflection Questions
+            </h2>
+
+            <div class="reflection-box">
+                <ul>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What is the most common sign of a phishing email?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Why should you never click links in suspicious emails?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        How can you check if a website is real or fake?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What should you do if a pop-up says your computer is infected?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Why is social engineering often more dangerous than technical hacking?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        How can you help your family members stay safe from online threats?
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">
+                <span class="emoji">🏠</span> Homework Assignment
+            </h2>
+
+            <div class="reflection-box">
+                <div class="hw-item">
+                    <i class="fas fa-search"></i> 1. Phishing Hunt
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #d9534f;"></i>
+                        Check your email spam folder. Find ONE suspicious email and identify 3 red flags.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-users"></i> 2. Family Mission
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #d9534f;"></i>
+                        Teach one family member how to spot a phishing email. Ask them to show you a suspicious email they've received.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-globe"></i> 3. Website Check
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #d9534f;"></i>
+                        Search for a service you use (e.g., Netflix, Google, Facebook). Find a fake/typosquatted version of the website and write down the URL.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-newspaper"></i> 4. Research
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #d9534f;"></i>
+                        Find a real news story about a major data breach or scam. Write a 3-sentence summary and explain how the scammers tricked people.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== FOOTER ===== -->
+            <div class="page-footer">
+                <i class="fas fa-shield-halved"></i>
+                Stay alert &bull; Think before you click &bull; Don't take the bait
+                <br />
+                <span style="font-size: 0.8rem; opacity: 0.7;">
+                    <i class="fas fa-bible"></i>
+                    "Whatever you do, work heartily, as for the Lord and not for men" — Colossians 3:23
+                </span>
+            </div>
+
+        </div>
+        <!-- END MAIN CARD -->
+
+    </div>
+    <!-- END CONTAINER -->
+
+</body>
+</html>

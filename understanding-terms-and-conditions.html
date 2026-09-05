@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Terms &amp; Conditions</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f5fe;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem 1.5rem;
+            color: #1a2a3e;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6d9bf0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            background: #e8effa;
+            border: 1px solid #d4e2f7;
+            transition: 0.2s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link:hover {
+            background: #d4e2f7;
+            border-color: #6d9bf0;
+            transform: translateX(-3px);
+        }
+
+        .main-card {
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 2.5rem 3rem;
+            border: 1px solid #d4e2f7;
+            box-shadow: 0 8px 30px rgba(109, 155, 240, 0.08);
+        }
+
+        @media (max-width: 600px) {
+            .main-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e8effa;
+        }
+
+        .lesson-header .badge {
+            display: inline-block;
+            background: #6d9bf0;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .lesson-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .lesson-header h1 i {
+            color: #6d9bf0;
+        }
+
+        .lesson-header .subtitle {
+            color: #4a6a8a;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .intro-box {
+            background: #f5f9ff;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid #6d9bf0;
+        }
+
+        .intro-box .quote-icon {
+            color: #6d9bf0;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .intro-box p {
+            font-size: 1.05rem;
+            color: #1a2a3e;
+            line-height: 1.9;
+        }
+
+        .intro-box strong {
+            color: #6d9bf0;
+        }
+
+        @media (max-width: 600px) {
+            .intro-box {
+                padding: 1.2rem 1.2rem;
+            }
+            .intro-box p {
+                font-size: 0.95rem;
+            }
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            margin: 2.5rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .section-title i {
+            color: #6d9bf0;
+        }
+
+        .section-title .emoji {
+            font-size: 1.8rem;
+        }
+
+        .sub-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2a3e;
+            margin: 1.8rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sub-section-title i {
+            color: #6d9bf0;
+            font-size: 1rem;
+        }
+
+        .topic-card {
+            background: #f5f9ff;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #d4e2f7;
+            transition: 0.2s ease;
+        }
+
+        .topic-card:hover {
+            border-color: #6d9bf0;
+            box-shadow: 0 4px 12px rgba(109, 155, 240, 0.1);
+        }
+
+        .topic-card .topic-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .topic-title i {
+            color: #6d9bf0;
+        }
+
+        .topic-card .topic-desc {
+            font-size: 0.95rem;
+            color: #2a4a6a;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .topic-example {
+            font-size: 0.88rem;
+            color: #4a6a8a;
+            background: #e8effa;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #6d9bf0;
+            margin-top: 0.5rem;
+        }
+
+        .topic-card .topic-example i {
+            color: #6d9bf0;
+            margin-right: 0.4rem;
+        }
+
+        .topic-card .topic-example code {
+            background: #1a2a3e;
+            color: #ffd93d;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.82rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem 0;
+            border-radius: 12px;
+            border: 1px solid #d4e2f7;
+        }
+
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+
+        .table-wrapper table th {
+            background: #6d9bf0;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+            text-align: left;
+        }
+
+        .table-wrapper table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #e8effa;
+            color: #2a4a6a;
+        }
+
+        .table-wrapper table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-wrapper table tr:nth-child(even) td {
+            background: #f5f9ff;
+        }
+
+        .table-wrapper table .bad {
+            color: #d9534f;
+            font-weight: 600;
+        }
+
+        .table-wrapper table .good {
+            color: #5cb85c;
+            font-weight: 600;
+        }
+
+        .examples-box {
+            background: #f5f9ff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d4e2f7;
+        }
+
+        .example-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #d4e2f7;
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .example-item .example-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .example-item .example-title i {
+            color: #6d9bf0;
+        }
+
+        .example-item .example-content {
+            font-size: 0.95rem;
+            color: #2a4a6a;
+            padding-left: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .examples-box {
+                padding: 1rem 1.2rem;
+            }
+            .example-item .example-content {
+                padding-left: 0;
+            }
+        }
+
+        .pro-tip {
+            background: linear-gradient(135deg, #1a2a3e, #16213e);
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.2rem 0;
+            color: #fff;
+            border-left: 6px solid #ffd93d;
+        }
+
+        .pro-tip i {
+            color: #ffd93d;
+            margin-right: 0.5rem;
+        }
+
+        .pro-tip code {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd93d;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88rem;
+        }
+
+        .activity-box {
+            background: linear-gradient(135deg, #1a2a3e, #0f3460);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin: 1.5rem 0;
+            color: #fff;
+            border: 1px solid #6d9bf0;
+        }
+
+        .activity-box .activity-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-box .activity-title i {
+            color: #ffd93d;
+        }
+
+        .activity-box .activity-part {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffd93d;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .activity-box .activity-part:first-of-type {
+            margin-top: 0;
+        }
+
+        .activity-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .activity-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #d4e2f7;
+        }
+
+        .activity-box ul li i {
+            color: #ffd93d;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .activity-box ul li strong {
+            color: #fff;
+        }
+
+        .activity-box table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+            color: #d4e2f7;
+        }
+
+        .activity-box table th {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.8rem;
+            text-align: left;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .activity-box table td {
+            padding: 0.4rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            .activity-box {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .takeaway-item {
+            background: #f5f9ff;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #d4e2f7;
+            text-align: center;
+        }
+
+        .takeaway-item .takeaway-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .takeaway-item .takeaway-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #1a2a3e;
+        }
+
+        .takeaway-item .takeaway-desc {
+            font-size: 0.8rem;
+            color: #4a6a8a;
+        }
+
+        @media (max-width: 700px) {
+            .takeaway-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .takeaway-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .reflection-box {
+            background: #f5f9ff;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d4e2f7;
+        }
+
+        .reflection-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .reflection-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #2a4a6a;
+        }
+
+        .reflection-box ul li i {
+            color: #6d9bf0;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .reflection-box .hw-item {
+            font-weight: 600;
+            color: #1a2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .reflection-box .hw-item i {
+            color: #6d9bf0;
+        }
+
+        .page-footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e8effa;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a6a8a;
+        }
+
+        .page-footer i {
+            color: #6d9bf0;
+        }
+
+        @media print {
+            .back-link {
+                display: none;
+            }
+            body {
+                background: #fff;
+                padding: 0.3in;
+            }
+            .main-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                border-radius: 12px;
+            }
+            .topic-card:hover {
+                box-shadow: none;
+            }
+            .activity-box {
+                background: #1a2a3e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .pro-tip {
+                background: #1a2a3e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .table-wrapper table th {
+                background: #6d9bf0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- BACK BUTTON -->
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Lessons
+        </a>
+
+        <!-- MAIN CARD -->
+        <div class="main-card">
+
+            <!-- HEADER -->
+            <header class="lesson-header">
+                <span class="badge"><i class="fas fa-gavel"></i> Digital Literacy</span>
+                <h1>
+                    <i class="fas fa-file-signature"></i>
+                    Understanding Terms &amp; Conditions
+                </h1>
+                <p class="subtitle">
+                    <i class="fas fa-search" style="color: #6d9bf0;"></i>
+                    Don't click "I Agree" blindly — know what you're signing up for
+                </p>
+            </header>
+
+            <!-- INTRODUCTION -->
+            <div class="intro-box">
+                <p>
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <strong>Raise your hand if you've ever clicked "I Agree" without reading a single word.</strong>
+                    Be honest! We all do it. It's just a long block of text that nobody has time to read, right? But here's the scary part: when you click <strong>"I Agree,"</strong> you might be giving companies permission to collect your photos, track your location, share your data with advertisers, or even <strong>sell your information</strong> to third parties without you ever knowing. In 2022, a major social media company was fined <strong>€1.2 billion</strong> for transferring user data without proper consent. In 2023, a popular fitness app was caught selling users' location data to insurance companies. These legal documents are written in complicated language for a reason — but today, we're going to <strong style="color: #6d9bf0;">decode them</strong>. You'll learn what to look for, what to watch out for, and how to protect your rights. <strong style="color: #6d9bf0;">You'll never click "I Agree" blindly again.</strong>
+                </p>
+            </div>
+
+            <!-- TOPICS -->
+            <h2 class="section-title">
+                <span class="emoji">📚</span> What You Need to Know
+            </h2>
+
+            <!-- What are T&C -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-file-contract"></i> What Are Terms &amp; Conditions?
+                </div>
+                <div class="topic-desc">
+                    Terms &amp; Conditions (also called Terms of Service or Terms of Use) is a legal agreement between you (the user) and the company that provides the service. It outlines the rules, rights, and responsibilities of both parties. When you create an account or use a service, you are entering into a legally binding contract with that company.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> What T&C Typically Cover:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Section</th>
+                                <th>What It Includes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Acceptance of Terms</strong></td>
+                                <td>By using the service, you agree to follow the rules</td>
+                            </tr>
+                            <tr>
+                                <td><strong>User Accounts</strong></td>
+                                <td>How to create accounts, password requirements, age limits</td>
+                            </tr>
+                            <tr>
+                                <td><strong>User Conduct</strong></td>
+                                <td>What you can and cannot do on the platform</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content Ownership</strong></td>
+                                <td>Who owns the content you post</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Collection &amp; Privacy</strong></td>
+                                <td>What data is collected and how it's used</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Third-Party Services</strong></td>
+                                <td>Links to other websites or services</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Termination</strong></td>
+                                <td>When and how your account can be suspended or deleted</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Disclaimers &amp; Liability</strong></td>
+                                <td>What the company is not responsible for</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dispute Resolution</strong></td>
+                                <td>How legal disputes are handled</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    Instagram's T&C state that you grant them a license to use your content (photos, videos, etc.) so they can display it on their platform. However, you still own your content. This license allows Instagram to show your posts to other users and use them for platform features like sharing and embedding.
+                </div>
+            </div>
+
+            <!-- Key Clauses -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-search"></i> Key Clauses to Look For
+                </div>
+                <div class="topic-desc">
+                    Not all T&C are created equal. Some are fair and transparent; others are designed to take advantage of users. There are specific clauses you should always look for before agreeing.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Critical Clauses You Should Always Check:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Clause</th>
+                                <th>What It Means</th>
+                                <th>Questions to Ask</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Data Collection</strong></td>
+                                <td>What data does the company collect?</td>
+                                <td>Do they collect location, contacts, messages, photos?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Usage</strong></td>
+                                <td>How will your data be used?</td>
+                                <td>Will they use it for advertising, research, selling?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Sharing</strong></td>
+                                <td>Will your data be shared with third parties?</td>
+                                <td>Who are they sharing it with? Can you opt out?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>User Rights</strong></td>
+                                <td>What rights do you have over your content?</td>
+                                <td>Do you own your content? Can you delete it?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Termination</strong></td>
+                                <td>Can the company suspend or delete your account?</td>
+                                <td>Under what circumstances? Can you appeal?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Age Requirements</strong></td>
+                                <td>What is the minimum age to use the service?</td>
+                                <td>Are there different rules for different regions?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dispute Resolution</strong></td>
+                                <td>How are legal disputes handled?</td>
+                                <td>Can you sue? Do you have to use arbitration?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Changes to Terms</strong></td>
+                                <td>Can the company change the T&C without notice?</td>
+                                <td>Will they notify you of changes?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A gaming app's T&C may state that they collect your device ID, location, contacts, and in-app behavior. If you don't agree, you can't use the app. Many users click "I Agree" without realizing they are giving the company access to their contacts and location.
+                </div>
+            </div>
+
+            <!-- Age Restrictions -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-calendar-check"></i> Age Restrictions
+                </div>
+                <div class="topic-desc">
+                    Many platforms require users to be at least 13 years old (under COPPA in the US) or 16 years old (under GDPR in Europe). These age restrictions exist to protect children from inappropriate content, data collection, and online predators.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Why Age Restrictions Exist:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reason</th>
+                                <th>Explanation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Child Protection</strong></td>
+                                <td>Protects children from predators and harmful content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Privacy</strong></td>
+                                <td>Children's data is protected under laws like COPPA and GDPR</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Age-Appropriate Content</strong></td>
+                                <td>Ensures users see content suitable for their age</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Legal Compliance</strong></td>
+                                <td>Companies must comply with laws to avoid massive fines</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parental Consent</strong></td>
+                                <td>For underage users, parental consent is often required</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Age Requirements by Platform:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Minimum Age</th>
+                                <th>Region</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Instagram</strong></td>
+                                <td>13</td>
+                                <td>Worldwide (under COPPA)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok</strong></td>
+                                <td>13</td>
+                                <td>13+ in US, 16+ in some regions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Facebook</strong></td>
+                                <td>13</td>
+                                <td>Worldwide (under COPPA)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Snapchat</strong></td>
+                                <td>13</td>
+                                <td>Worldwide</td>
+                            </tr>
+                            <tr>
+                                <td><strong>YouTube</strong></td>
+                                <td>13</td>
+                                <td>13+ for full features</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Twitter/X</strong></td>
+                                <td>13</td>
+                                <td>Worldwide</td>
+                            </tr>
+                            <tr>
+                                <td><strong>WhatsApp</strong></td>
+                                <td>13</td>
+                                <td>16+ in Europe under GDPR</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fortnite</strong></td>
+                                <td>13</td>
+                                <td>With parental consent for younger</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ChatGPT</strong></td>
+                                <td>13</td>
+                                <td>18+ in some regions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                    <i class="fas fa-exclamation-triangle" style="color: #d9534f;"></i>
+                    Why You Shouldn't Lie About Your Age:
+                </div>
+                <ul style="padding-left: 2rem; color: #2a4a6a; font-size: 0.92rem; list-style-type: none;">
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        It violates the Terms of Service — your account could be suspended or permanently banned
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        You'll see content not meant for your age group (potentially harmful)
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        Your data may be used in ways you don't understand or consent to
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        You miss out on safety features designed specifically for younger users
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.2rem;">
+                        <span style="color: #d9534f;">❌</span>
+                        The company could face legal consequences for collecting data from underage users
+                    </li>
+                </ul>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A 12-year-old student signs up for TikTok by entering a fake birth year. They are exposed to content that is inappropriate for their age — including challenges, adult humor, and potentially dangerous trends. Additionally, their data is being collected and used in ways that violate TikTok's actual Terms of Service. If caught, the account would be permanently banned.
+                </div>
+            </div>
+
+            <!-- Data Collection -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-database"></i> Data Collection — What They Take and Why
+                </div>
+                <div class="topic-desc">
+                    When you use a service, the company collects data about you. This data can range from basic information like your email address to detailed information like your location, browsing history, contacts, and even your biometric data.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Types of Data Collected by Platforms:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Examples</th>
+                                <th>Why Companies Collect It</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Personal Identifiers</strong></td>
+                                <td>Name, email, phone number, date of birth</td>
+                                <td>To identify you, send notifications, verify identity</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Device Information</strong></td>
+                                <td>Device type, operating system, IP address</td>
+                                <td>To optimize the app, track usage, prevent fraud</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Location Data</strong></td>
+                                <td>GPS location, IP location, Wi-Fi networks</td>
+                                <td>For location-based features, targeted ads</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usage Data</strong></td>
+                                <td>What you click, how long you use the app, search history</td>
+                                <td>To improve the product, personalize content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contacts</strong></td>
+                                <td>Your phone contacts, friends lists</td>
+                                <td>To connect you with friends, suggest followers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content</strong></td>
+                                <td>Photos, videos, messages, posts you create</td>
+                                <td>To display your content, analyze trends</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment Information</strong></td>
+                                <td>Credit card numbers, purchase history</td>
+                                <td>To process transactions, prevent fraud</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> How Companies Use Your Data:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Purpose</th>
+                                <th>Explanation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Targeted Advertising</strong></td>
+                                <td>Show ads based on your interests, location, and behavior</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Product Improvement</strong></td>
+                                <td>Analyze how people use the app to make it better</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personalization</strong></td>
+                                <td>Show content and recommendations tailored to you</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security</strong></td>
+                                <td>Detect suspicious activity and prevent fraud</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sharing with Third Parties</strong></td>
+                                <td>Sell or share data with partners and advertisers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Legal Compliance</strong></td>
+                                <td>Comply with laws and regulations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Research</strong></td>
+                                <td>Conduct market research and develop new products</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A fitness app collects location data (GPS tracking) during runs and workouts. The app then sells this data to advertisers who target users with ads for sports gear, gyms, and health products. In some cases, the data is also sold to insurance companies who use it to adjust premiums based on how active users are.
+                </div>
+            </div>
+
+            <!-- Termination Rights -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-ban"></i> Termination Rights — When Your Account Can Be Banned
+                </div>
+                <div class="topic-desc">
+                    Termination rights allow the company to suspend or permanently delete your account if you violate the Terms of Service. This is a powerful tool that companies use to enforce their rules.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Reasons Your Account Can Be Terminated:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reason</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Violating T&C</strong></td>
+                                <td>Posting prohibited content, using fake information</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Harassment/Bullying</strong></td>
+                                <td>Sending threatening messages, cyberbullying</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Illegal Activity</strong></td>
+                                <td>Using the platform for illegal purposes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Impersonation</strong></td>
+                                <td>Pretending to be someone else</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spam/Scams</strong></td>
+                                <td>Sending unsolicited messages, phishing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hate Speech</strong></td>
+                                <td>Posting discriminatory or offensive content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Copyright Infringement</strong></td>
+                                <td>Sharing copyrighted material without permission</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inactivity</strong></td>
+                                <td>Some platforms delete inactive accounts after a certain period</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> What Happens When You're Banned:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>What Happens</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Warning</strong></td>
+                                <td>You may receive a warning for minor violations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Temporary Suspension</strong></td>
+                                <td>Your account is temporarily locked (hours/days/weeks)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Permanent Ban</strong></td>
+                                <td>Your account is permanently deleted and cannot be recovered</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IP/Device Ban</strong></td>
+                                <td>Your IP address or device is blocked from creating new accounts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Legal Action</strong></td>
+                                <td>In severe cases, the company may take legal action</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student posts offensive content targeting a classmate on Instagram. The post is reported, and Instagram's moderation team reviews it. The student's account is permanently banned, and they lose all their photos, messages, and followers. The student cannot create a new account using the same email or phone number.
+                </div>
+            </div>
+
+            <!-- Your Rights -->
+            <div class="topic-card">
+                <div class="topic-title">
+                    <i class="fas fa-user-shield"></i> Your Rights — What You Can Do
+                </div>
+                <div class="topic-desc">
+                    Despite all the data collection and rules, you still have rights as a user. Many countries have laws that protect your digital rights.
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> Key User Rights:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Right</th>
+                                <th>What It Means</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Right to Access</strong></td>
+                                <td>You can request a copy of all data the company has collected about you</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Rectification</strong></td>
+                                <td>You can correct inaccurate data</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Erasure</strong></td>
+                                <td>You can request that your data be deleted ("Right to be Forgotten")</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Restrict Processing</strong></td>
+                                <td>You can limit how your data is used</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Data Portability</strong></td>
+                                <td>You can transfer your data to another service</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Object</strong></td>
+                                <td>You can object to certain uses of your data (like targeted ads)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Withdraw Consent</strong></td>
+                                <td>You can withdraw your consent at any time</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Right to Complain</strong></td>
+                                <td>You can file a complaint with a data protection authority</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="font-weight: 600; color: #1a2a3e; margin: 0.5rem 0 0.3rem 0;">
+                    <i class="fas fa-list" style="color: #6d9bf0;"></i> How to Exercise Your Rights:
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Where to Go</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Google/Gmail</strong></td>
+                                <td>Takeout.google.com (download data)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Facebook/Instagram</strong></td>
+                                <td>Settings → Your Information → Download Your Information</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok</strong></td>
+                                <td>Settings → Privacy → Download your data</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Twitter/X</strong></td>
+                                <td>Settings → Your Account → Download an archive of your data</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Apple</strong></td>
+                                <td>Privacy.apple.com (manage data)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="topic-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Real-World Example:</strong>
+                    A student realizes they want to leave Instagram. They go to Settings → Your Information → Download Your Information and request a copy of all their data. The platform sends them a file containing their posts, messages, photos, and activity history. They then delete their account.
+                </div>
+            </div>
+
+            <!-- EXAMPLES -->
+            <h2 class="section-title">
+                <span class="emoji">✅</span> Examples for Students
+            </h2>
+
+            <div class="examples-box">
+                <!-- Example 1 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 1 — Instagram's T&C Highlights
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>What Instagram Does</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Data Collected</strong></td>
+                                        <td>Your device info, IP address, location, photos, videos, messages, search history, and even what you browse outside the app</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>How Data Is Used</strong></td>
+                                        <td>Targeted ads, content recommendations, platform improvement, showing posts to others</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Who Data Is Shared With</strong></td>
+                                        <td>Parent company (Meta), advertisers, third-party partners, and affiliates</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Your Rights</strong></td>
+                                        <td>You own your content, but you grant Instagram a license to display, distribute, and modify it</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Age Requirement</strong></td>
+                                        <td>13+ (with parental consent for 13-18 in some regions)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Termination</strong></td>
+                                        <td>Instagram can suspend or delete your account if you violate T&C</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 2 — Fortnite's T&C Highlights
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>What Fortnite Does</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Data Collected</strong></td>
+                                        <td>In-game actions, voice chat audio (in some regions), device info, IP address, purchase history</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>How Data Is Used</strong></td>
+                                        <td>Game improvement, anti-cheat systems, personalized experiences</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Who Data Is Shared With</strong></td>
+                                        <td>Partners, affiliates, and third-party service providers</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Your Rights</strong></td>
+                                        <td>You can request data deletion in some regions</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Age Requirement</strong></td>
+                                        <td>13+ (with parental consent for younger players)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Termination</strong></td>
+                                        <td>You can be banned for cheating, offensive language, or chargebacks</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 3 — ChatGPT's T&C Highlights
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>What ChatGPT Does</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Data Collected</strong></td>
+                                        <td>Conversations, usage data, IP address, device info</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>How Data Is Used</strong></td>
+                                        <td>To improve the AI model, provide better responses, and for research</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Who Data Is Shared With</strong></td>
+                                        <td>Third-party service providers for hosting and analysis (not with advertisers)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Your Rights</strong></td>
+                                        <td>You can opt out of having your conversations used for training (in settings)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Age Requirement</strong></td>
+                                        <td>13+ (18+ in some regions)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Termination</strong></td>
+                                        <td>Accounts can be banned for misuse, spam, or violating usage policies</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="example-item">
+                    <div class="example-title">
+                        <i class="fas fa-arrow-right"></i> Example 4 — Comparing T&C: What to Look For
+                    </div>
+                    <div class="example-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Clause</th>
+                                        <th>Why It Matters</th>
+                                        <th>Real-World Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Data Collection</strong></td>
+                                        <td>You need to know what they're taking from you</td>
+                                        <td>A photo app collects your location, contacts, AND photos — that's a lot!</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Data Sharing</strong></td>
+                                        <td>Your data might end up with people you don't know</td>
+                                        <td>A free game sells your data to advertisers who target you with ads</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Termination</strong></td>
+                                        <td>Your account can disappear without warning</td>
+                                        <td>A student's account is banned and they lose 3 years of posts</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Age Requirement</strong></td>
+                                        <td>Don't lie about your age — you'll see age-inappropriate content</td>
+                                        <td>A 12-year-old sees adult content because they pretended to be 16</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Dispute Resolution</strong></td>
+                                        <td>You may not be able to sue the company</td>
+                                        <td>Many apps require you to use arbitration instead of going to court</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY -->
+            <h2 class="section-title">
+                <span class="emoji">🧪</span> Activity: T&C Scavenger Hunt
+            </h2>
+
+            <div class="activity-box">
+
+                <div class="activity-title">
+                    <i class="fas fa-rocket"></i> Let's Get Started!
+                </div>
+
+                <div class="activity-part">
+                    <i class="fas fa-users"></i> Part 1: Research
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Students are divided into 3 groups. Each group is assigned a platform:
+                        <br />
+                        <span style="display: inline-block; padding-left: 1.5rem; font-size: 0.92rem; color: #a8d8ea;">
+                            <strong>Group A:</strong> Instagram &nbsp;|&nbsp;
+                            <strong>Group B:</strong> TikTok &nbsp;|&nbsp;
+                            <strong>Group C:</strong> YouTube
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Each group must find:
+                        <br />
+                        <span style="display: inline-block; padding-left: 1.5rem; font-size: 0.88rem; color: #a8d8ea;">
+                            1. Minimum age to use the platform
+                            <br />
+                            2. 3 types of data the platform collects
+                            <br />
+                            3. 1 thing users are forbidden to do
+                            <br />
+                            4. What happens if T&C are violated
+                            <br />
+                            5. Can users delete their data?
+                            <br />
+                            6. Does the platform share data with third parties?
+                            <br />
+                            7. What rights do users have over their content?
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-file-alt"></i> Part 2: Worksheet
+                </div>
+                <div class="table-wrapper" style="border-color: rgba(255,255,255,0.1);">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Group A: Instagram</th>
+                                <th>Group B: TikTok</th>
+                                <th>Group C: YouTube</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Minimum Age</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3 Types of Data Collected</strong></td>
+                                <td>1. 2. 3.</td>
+                                <td>1. 2. 3.</td>
+                                <td>1. 2. 3.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1 Thing Users Are Forbidden to Do</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>What Happens If T&C Are Violated?</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Can You Delete Your Data?</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-presentation"></i> Part 3: Presentation
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Each group presents their findings to the class (5-7 minutes)
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Include:
+                        <br />
+                        <span style="display: inline-block; padding-left: 1.5rem; font-size: 0.88rem; color: #a8d8ea;">
+                            1. Introduce your platform
+                            <br />
+                            2. Share your findings for each question
+                            <br />
+                            3. Share 1 surprising thing you learned
+                            <br />
+                            4. Give advice: "Should users be careful with this platform? Why?"
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="activity-part" style="margin-top: 1.2rem;">
+                    <i class="fas fa-comments"></i> Part 4: Class Discussion
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Why do you think companies write T&C in such complicated language?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "What surprised you most about the T&C you researched?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Do you think it's fair that companies can collect your data without actively asking for permission?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "What would you change about how T&C are presented to users?"
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        "Why is it important to know what happens to your data when you use a service?"
+                    </li>
+                </ul>
+            </div>
+
+            <!-- KEY TAKEAWAYS -->
+            <h2 class="section-title">
+                <span class="emoji">📊</span> Key Takeaways Summary
+            </h2>
+
+            <div class="takeaway-grid">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📄</span>
+                    <div class="takeaway-label">What Are T&C?</div>
+                    <div class="takeaway-desc">A legal contract — you agree when you click "I Agree"</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🔍</span>
+                    <div class="takeaway-label">Key Clauses</div>
+                    <div class="takeaway-desc">Always check data collection, sharing, termination, and your rights</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📅</span>
+                    <div class="takeaway-label">Age Restrictions</div>
+                    <div class="takeaway-desc">Don't lie about your age — it violates T&C and puts you at risk</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">💾</span>
+                    <div class="takeaway-label">Data Collection</div>
+                    <div class="takeaway-desc">Companies collect a lot — know what they're taking and why</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🚫</span>
+                    <div class="takeaway-label">Termination</div>
+                    <div class="takeaway-desc">Your account can be banned for violating T&C</div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🛡️</span>
+                    <div class="takeaway-label">Your Rights</div>
+                    <div class="takeaway-desc">You can request your data, delete it, or opt out</div>
+                </div>
+            </div>
+
+            <!-- REFLECTION & HOMEWORK -->
+            <h2 class="section-title">
+                <span class="emoji">📝</span> Student Reflection Questions
+            </h2>
+
+            <div class="reflection-box">
+                <ul>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What is one thing you learned about T&C that surprised you?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Why do you think companies make T&C so long and hard to read?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        How will you approach clicking "I Agree" differently after today?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        What is the most important clause you should look for in T&C?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Why is it dangerous to lie about your age when signing up for a service?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        How can you protect your data when using online services?
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        Would you read T&C more carefully now? Why or why not?
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">
+                <span class="emoji">🏠</span> Homework Assignment
+            </h2>
+
+            <div class="reflection-box">
+                <div class="hw-item">
+                    <i class="fas fa-file-alt"></i> 1. T&C Reading
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Go to a platform you use (Instagram, TikTok, YouTube, etc.). Find and read their Terms of Service (or a summary). Write down 3 things you didn't know before.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-search"></i> 2. Privacy Audit
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Go to the privacy settings of a platform you use. Find where you can: download your data, delete your account, and opt out of data sharing.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-users"></i> 3. Family Mission
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Ask a family member if they've ever read T&C. Share 3 things you learned today.
+                    </li>
+                </ul>
+
+                <div class="hw-item" style="margin-top: 0.8rem;">
+                    <i class="fas fa-pen"></i> 4. T&C Summary
+                </div>
+                <ul>
+                    <li>
+                        <i class="fas fa-chevron-right" style="color: #6d9bf0;"></i>
+                        Choose a platform and write a 1-page "plain English" summary of their T&C that a 12-year-old could understand.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="page-footer">
+                <i class="fas fa-gavel"></i>
+                Know your rights &bull; Read before you agree &bull; Protect your data
+                <br />
+                <span style="font-size: 0.8rem; opacity: 0.7;">
+                    <i class="fas fa-bible"></i>
+                    "Whatever you do, work heartily, as for the Lord and not for men" — Colossians 3:23
+                </span>
+            </div>
+
+        </div>
+        <!-- END MAIN CARD -->
+
+    </div>
+    <!-- END CONTAINER -->
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Footprint &amp; Reputation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f5fe; font-family: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif; padding: 2rem 1.5rem; color: #1a2a3e; line-height: 1.7; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #6d9bf0; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 1.2rem; border-radius: 30px; background: #e8effa; border: 1px solid #d4e2f7; transition: 0.2s; margin-bottom: 1.5rem; }
+        .back-link:hover { background: #d4e2f7; border-color: #6d9bf0; transform: translateX(-3px); }
+        .main-card { background: #fff; border-radius: 36px; padding: 2.5rem 3rem; border: 1px solid #d4e2f7; box-shadow: 0 8px 30px rgba(109,155,240,0.08); }
+        @media (max-width:600px){ .main-card { padding:1.5rem; } }
+        .lesson-header { text-align:center; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:2px solid #e8effa; }
+        .lesson-header .badge { display:inline-block; background:#6d9bf0; color:#fff; font-weight:700; font-size:0.8rem; padding:0.3rem 1.2rem; border-radius:30px; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.5rem; }
+        .lesson-header h1 { font-size:2.6rem; font-weight:700; display:flex; align-items:center; justify-content:center; gap:0.8rem; flex-wrap:wrap; color:#1a2a3e; }
+        .lesson-header h1 i { color:#6d9bf0; }
+        .lesson-header .subtitle { color:#4a6a8a; font-size:1rem; margin-top:0.3rem; }
+        @media (max-width:600px){ .lesson-header h1 { font-size:1.8rem; } }
+        .intro-box { background:#f5f9ff; border-radius:20px; padding:1.8rem 2.2rem; margin-bottom:2rem; border-left:6px solid #6d9bf0; }
+        .intro-box .quote-icon { color:#6d9bf0; font-size:1.2rem; margin-right:0.5rem; opacity:0.7; }
+        .intro-box p { font-size:1.05rem; color:#1a2a3e; line-height:1.9; }
+        .intro-box strong { color:#6d9bf0; }
+        @media (max-width:600px){ .intro-box { padding:1.2rem; } .intro-box p { font-size:0.95rem; } }
+        .section-title { font-size:1.6rem; font-weight:700; margin:2.5rem 0 1.2rem; display:flex; align-items:center; gap:0.7rem; color:#1a2a3e; }
+        .section-title i { color:#6d9bf0; }
+        .section-title .emoji { font-size:1.8rem; }
+        .topic-card { background:#f5f9ff; border-radius:16px; padding:1.5rem 1.8rem; margin-bottom:1.2rem; border:1px solid #d4e2f7; transition:0.2s; }
+        .topic-card:hover { border-color:#6d9bf0; box-shadow:0 4px 12px rgba(109,155,240,0.1); }
+        .topic-card .topic-title { font-weight:700; font-size:1.1rem; color:#1a2a3e; display:flex; align-items:center; gap:0.7rem; margin-bottom:0.5rem; }
+        .topic-card .topic-title i { color:#6d9bf0; }
+        .topic-card .topic-desc { font-size:0.95rem; color:#2a4a6a; margin-bottom:0.5rem; }
+        .topic-card .topic-example { font-size:0.88rem; color:#4a6a8a; background:#e8effa; padding:0.5rem 1rem; border-radius:8px; border-left:4px solid #6d9bf0; margin-top:0.5rem; }
+        .topic-card .topic-example i { color:#6d9bf0; margin-right:0.4rem; }
+        .topic-card .topic-example code { background:#1a2a3e; color:#ffd93d; padding:0.1rem 0.5rem; border-radius:4px; font-family:'SF Mono','Fira Code',monospace; font-size:0.82rem; }
+        .table-wrapper { overflow-x:auto; margin:1rem 0 1.5rem; border-radius:12px; border:1px solid #d4e2f7; }
+        .table-wrapper table { width:100%; border-collapse:collapse; font-size:0.9rem; min-width:500px; }
+        .table-wrapper table th { background:#6d9bf0; color:#fff; font-weight:600; padding:0.7rem 1rem; text-align:left; }
+        .table-wrapper table td { padding:0.7rem 1rem; border-bottom:1px solid #e8effa; color:#2a4a6a; }
+        .table-wrapper table tr:last-child td { border-bottom:none; }
+        .table-wrapper table tr:nth-child(even) td { background:#f5f9ff; }
+        .table-wrapper table .bad { color:#d9534f; font-weight:600; }
+        .table-wrapper table .good { color:#5cb85c; font-weight:600; }
+        .examples-box { background:#f5f9ff; border-radius:20px; padding:1.8rem 2rem; margin:1.5rem 0; border:1px solid #d4e2f7; }
+        .example-item { margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid #d4e2f7; }
+        .example-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+        .example-item .example-title { font-weight:700; font-size:1.05rem; color:#1a2a3e; display:flex; align-items:center; gap:0.6rem; margin-bottom:0.4rem; }
+        .example-item .example-title i { color:#6d9bf0; }
+        .example-item .example-content { font-size:0.95rem; color:#2a4a6a; padding-left:2rem; }
+        @media (max-width:600px){ .examples-box { padding:1rem 1.2rem; } .example-item .example-content { padding-left:0; } }
+        .pro-tip { background:linear-gradient(135deg,#1a2a3e,#16213e); border-radius:16px; padding:1.2rem 1.8rem; margin:1.2rem 0; color:#fff; border-left:6px solid #ffd93d; }
+        .pro-tip i { color:#ffd93d; margin-right:0.5rem; }
+        .pro-tip code { background:rgba(255,255,255,0.1); color:#ffd93d; padding:0.1rem 0.5rem; border-radius:4px; font-family:'SF Mono','Fira Code',monospace; font-size:0.88rem; }
+        .activity-box { background:linear-gradient(135deg,#1a2a3e,#0f3460); border-radius:20px; padding:2rem 2.2rem; margin:1.5rem 0; color:#fff; border:1px solid #6d9bf0; }
+        .activity-box .activity-title { font-size:1.3rem; font-weight:700; display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem; }
+        .activity-box .activity-title i { color:#ffd93d; }
+        .activity-box .activity-part { font-weight:600; font-size:1rem; color:#ffd93d; margin-top:1rem; display:flex; align-items:center; gap:0.5rem; }
+        .activity-box .activity-part:first-of-type { margin-top:0; }
+        .activity-box ul { list-style-type:none; padding-left:0; }
+        .activity-box ul li { display:flex; align-items:flex-start; gap:0.7rem; margin-bottom:0.5rem; font-size:0.95rem; color:#d4e2f7; }
+        .activity-box ul li i { color:#ffd93d; margin-top:0.2rem; flex-shrink:0; }
+        .activity-box ul li strong { color:#fff; }
+        @media (max-width:600px){ .activity-box { padding:1.2rem; } }
+        .takeaway-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin:1rem 0; }
+        .takeaway-item { background:#f5f9ff; border-radius:12px; padding:1rem 1.2rem; border:1px solid #d4e2f7; text-align:center; }
+        .takeaway-item .takeaway-icon { font-size:2rem; display:block; margin-bottom:0.3rem; }
+        .takeaway-item .takeaway-label { font-weight:700; font-size:0.85rem; color:#1a2a3e; }
+        .takeaway-item .takeaway-desc { font-size:0.8rem; color:#4a6a8a; }
+        @media (max-width:700px){ .takeaway-grid { grid-template-columns:1fr 1fr; } }
+        @media (max-width:450px){ .takeaway-grid { grid-template-columns:1fr; } }
+        .reflection-box { background:#f5f9ff; border-radius:16px; padding:1.5rem 2rem; margin:1.5rem 0; border:1px solid #d4e2f7; }
+        .reflection-box ul { list-style-type:none; padding-left:0; }
+        .reflection-box ul li { display:flex; align-items:flex-start; gap:0.7rem; margin-bottom:0.5rem; font-size:0.95rem; color:#2a4a6a; }
+        .reflection-box ul li i { color:#6d9bf0; margin-top:0.2rem; flex-shrink:0; }
+        .reflection-box .hw-item { font-weight:600; color:#1a2a3e; display:flex; align-items:center; gap:0.5rem; margin-top:0.8rem; }
+        .reflection-box .hw-item i { color:#6d9bf0; }
+        .page-footer { margin-top:2.5rem; padding-top:1.5rem; border-top:2px solid #e8effa; text-align:center; font-size:0.85rem; color:#4a6a8a; }
+        .page-footer i { color:#6d9bf0; }
+        @media print { .back-link { display:none; } body { background:#fff; padding:0.3in; } .main-card { box-shadow:none; border:1px solid #ccc; } .activity-box { background:#1a2a3e !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .pro-tip { background:#1a2a3e !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .table-wrapper table th { background:#6d9bf0 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="semester1-21113.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Semester 1</a>
+    <div class="main-card">
+        <header class="lesson-header">
+            <span class="badge"><i class="fas fa-history"></i> Lesson 06</span>
+            <h1><i class="fas fa-user-clock"></i> Digital Footprint &amp; Reputation</h1>
+            <p class="subtitle"><i class="fas fa-search"></i> Your online presence matters — manage it wisely</p>
+        </header>
+        <div class="intro-box">
+            <p><i class="fas fa-quote-left quote-icon"></i><strong>Imagine if everything you've ever posted online — every photo, every comment, every like, and every meme — was printed out and given to your future boss, teacher, or college admissions officer.</strong> Would you be proud or embarrassed? Your digital footprint is like a permanent tattoo that follows you forever. A student in the US lost a university scholarship because of an old tweet using inappropriate language. In Thailand, employers increasingly check applicants' social media before hiring. But don't worry — it's not too late. Today, you'll learn to <strong style="color:#6d9bf0;">audit your digital footprint</strong> and build a positive online reputation that opens doors instead of closing them.</p>
+        </div>
+        <h2 class="section-title"><span class="emoji">📚</span> What You Need to Know</h2>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-fingerprint"></i> What is a Digital Footprint?</div>
+            <div class="topic-desc">A digital footprint is all the data you leave behind when you use the internet. Every time you post, search, click, like, or comment, you're adding to your digital footprint.</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#6d9bf0;"></i> Active vs. Passive Footprint:</div>
+            <div class="table-wrapper"><table><thead><tr><th>Type</th><th>What It Is</th><th>Examples</th></tr></thead><tbody>
+                <tr><td><strong>Active Footprint</strong></td><td>Data you consciously share</td><td>Posts, comments, photos, videos, messages</td></tr>
+                <tr><td><strong>Passive Footprint</strong></td><td>Data collected about you without your knowledge</td><td>Location data, browsing history, search history, IP address</td></tr>
+            </tbody></table></div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#6d9bf0;"></i> Where Your Digital Footprint Comes From:</div>
+            <ul style="padding-left:2rem; color:#2a4a6a; font-size:0.92rem; list-style-type:none;">
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#6d9bf0;">📱</span> Social Media — Posts, comments, likes, shares, profile information</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#6d9bf0;">🔍</span> Search Engines — Search history, clicked links</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#6d9bf0;">🌐</span> Websites — Browsing history, cookies, IP address</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#6d9bf0;">📲</span> Apps — Location data, usage patterns, device info</li>
+            </ul>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> A student visits a travel website, searches for flights, and looks at hotels. Later, they see ads for flights and hotels on their social media feed. This is because their passive footprint was collected and used for targeted advertising.</div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-exclamation-triangle"></i> Why Your Digital Footprint Matters</div>
+            <div class="topic-desc">Your digital footprint is like a permanent record of your online activity. It can affect your future in many ways.</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#6d9bf0;"></i> Who Might Check Your Digital Footprint:</div>
+            <div class="table-wrapper"><table><thead><tr><th>Who</th><th>What They Look For</th><th>Why It Matters</th></tr></thead><tbody>
+                <tr><td><strong>College Admissions</strong></td><td>Posts, comments, online behavior</td><td>One negative post can cost you admission</td></tr>
+                <tr><td><strong>Employers</strong></td><td>Professionalism, judgment, values</td><td>70% of employers check social media before hiring</td></tr>
+                <tr><td><strong>Scholarship Committees</strong></td><td>Character, behavior</td><td>Scholarships can be revoked for inappropriate posts</td></tr>
+                <tr><td><strong>Law Enforcement</strong></td><td>Evidence of illegal activity</td><td>Posts can be used in court</td></tr>
+            </tbody></table></div>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> A student posts a photo holding a drink at a party. The photo is shared and seen by a university admissions officer. The student's application is rejected because the university has a strict anti-drinking policy. The student didn't even drink the alcohol — but the photo created the wrong impression.</div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-title"><i class="fas fa-broom"></i> Managing Your Digital Footprint</div>
+            <div class="topic-desc">You can't delete your digital footprint entirely, but you can manage it. Here's how to clean up and control your online presence.</div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-list" style="color:#6d9bf0;"></i> Steps to Manage Your Digital Footprint:</div>
+            <div class="table-wrapper"><table><thead><tr><th>Step</th><th>Action</th><th>Why It's Important</th></tr></thead><tbody>
+                <tr><td><strong>1</strong></td><td>Google Yourself</td><td>See what others see when they search your name</td></tr>
+                <tr><td><strong>2</strong></td><td>Delete Old Posts</td><td>Remove embarrassing or unprofessional content</td></tr>
+                <tr><td><strong>3</strong></td><td>Adjust Privacy Settings</td><td>Limit who can see your posts</td></tr>
+                <tr><td><strong>4</strong></td><td>Post Positively</td><td>Share content you'd be proud of</td></tr>
+                <tr><td><strong>5</strong></td><td>Be Kind Online</td><td>Your comments reflect your character</td></tr>
+                <tr><td><strong>6</strong></td><td>Create a Positive Presence</td><td>LinkedIn, portfolio, achievements</td></tr>
+            </tbody></table></div>
+            <div style="font-weight:600; color:#1a2a3e; margin:0.5rem 0 0.3rem;"><i class="fas fa-check-circle" style="color:#5cb85c;"></i> What to Post Instead:</div>
+            <ul style="padding-left:2rem; color:#2a4a6a; font-size:0.92rem; list-style-type:none;">
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#5cb85c;">✅</span> Achievements — Shows hard work and success</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#5cb85c;">✅</span> Volunteer work — Shows kindness and community involvement</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#5cb85c;">✅</span> Hobbies and interests — Shows personality and passion</li>
+                <li style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom:0.2rem;"><span style="color:#5cb85c;">✅</span> Positive comments — Shows kindness and respect</li>
+            </ul>
+            <div class="topic-example"><i class="fas fa-lightbulb"></i><strong>Real-World Example:</strong> A student graduates high school and applies to university. Before applying, they: (1) Google themselves and find an old blog post with embarrassing content, (2) Delete the blog post, (3) Set their Instagram to Private, (4) Remove 5 unprofessional tweets, (5) Create a LinkedIn profile with their achievements. The university searches their name and finds a positive, professional presence. The student is accepted.</div>
+        </div>
+
+        <div class="pro-tip">
+            <i class="fas fa-star"></i><strong>The "Grandmother Test"</strong>
+            Before you post anything, ask yourself: <em>"Would I be comfortable if my grandmother, my teacher, or my future employer saw this?"</em>
+            <br>If the answer is no, <strong style="color:#ffd93d;">don't post it</strong>.
+        </div>
+
+        <h2 class="section-title"><span class="emoji">✅</span> Examples for Students</h2>
+        <div class="examples-box">
+            <div class="example-item"><div class="example-title"><i class="fas fa-arrow-right"></i> Example 1 — Positive vs. Negative Digital Footprint</div>
+            <div class="example-content"><div class="table-wrapper"><table><thead><tr><th>❌ Negative</th><th>✅ Positive</th></tr></thead><tbody>
+                <tr><td>Posting a video complaining about a teacher</td><td>Sharing a project you're proud of</td></tr>
+                <tr><td>Posting angry political rants</td><td>Sharing volunteer work or community service</td></tr>
+                <tr><td>Leaving nasty comments on other people's posts</td><td>Leaving supportive, kind comments</td></tr>
+            </tbody></table></div></div></div>
+            <div class="example-item"><div class="example-title"><i class="fas fa-arrow-right"></i> Example 2 — Employer/College Check</div>
+            <div class="example-content"><div class="table-wrapper"><table><thead><tr><th>What They See</th><th>What They Think</th></tr></thead><tbody>
+                <tr><td>LinkedIn profile with achievements, volunteer work, and professional photo</td><td>"This student is responsible, hardworking, and mature."</td></tr>
+                <tr><td>Public Twitter account with inappropriate jokes and complaints</td><td>"This student is immature and may be difficult to work with."</td></tr>
+                <tr><td>Private Instagram account</td><td>"This student values their privacy."</td></tr>
+            </tbody></table></div></div></div>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">🧪</span> Activity: Digital Footprint Self-Audit</h2>
+        <div class="activity-box">
+            <div class="activity-title"><i class="fas fa-rocket"></i> Let's Get Started!</div>
+            <div class="activity-part"><i class="fas fa-search"></i> Part 1: Research</div>
+            <ul><li><i class="fas fa-check-circle"></i> Google your own name (with caution)</li>
+            <li><i class="fas fa-check-circle"></i> List everything you find</li>
+            <li><i class="fas fa-check-circle"></i> Check your social media accounts and list what you find</li></ul>
+            <div class="activity-part" style="margin-top:1.2rem;"><i class="fas fa-file-alt"></i> Part 2: Audit Worksheet</div>
+            <div class="table-wrapper" style="border-color:rgba(255,255,255,0.1);"><table><thead><tr><th>Platform</th><th>What I Found</th><th>Should I Delete/Keep?</th><th>Action</th></tr></thead><tbody>
+                <tr><td>Google Search</td><td></td><td></td><td></td></tr>
+                <tr><td>Instagram</td><td></td><td></td><td></td></tr>
+                <tr><td>Facebook</td><td></td><td></td><td></td></tr>
+                <tr><td>TikTok</td><td></td><td></td><td></td></tr>
+                <tr><td>Other</td><td></td><td></td><td></td></tr>
+            </tbody></table></div>
+            <div class="activity-part" style="margin-top:1.2rem;"><i class="fas fa-pen"></i> Part 3: Clean-Up Plan</div>
+            <ul><li><i class="fas fa-check-circle"></i> Write a plan for cleaning up your digital footprint</li>
+            <li><i class="fas fa-check-circle"></i> Set 3 goals for improving your online presence</li></ul>
+            <div class="activity-part" style="margin-top:1.2rem;"><i class="fas fa-comments"></i> Part 4: Reflection</div>
+            <ul><li><i class="fas fa-question-circle"></i> How did you feel after cleaning up your digital footprint?</li>
+            <li><i class="fas fa-question-circle"></i> What surprised you the most?</li>
+            <li><i class="fas fa-question-circle"></i> What will you do differently moving forward?</li></ul>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">📊</span> Key Takeaways</h2>
+        <div class="takeaway-grid">
+            <div class="takeaway-item"><span class="takeaway-icon">👣</span><div class="takeaway-label">Digital Footprint</div><div class="takeaway-desc">Everything you post is permanent — manage it wisely</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">👀</span><div class="takeaway-label">Who's Watching</div><div class="takeaway-desc">Employers and colleges check your social media</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">🧹</span><div class="takeaway-label">Clean Up</div><div class="takeaway-desc">Delete old posts and adjust privacy settings</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">💬</span><div class="takeaway-label">Post Positively</div><div class="takeaway-desc">Share content you'd be proud of</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">👵</span><div class="takeaway-label">Grandmother Test</div><div class="takeaway-desc">Would you want your grandmother to see it?</div></div>
+            <div class="takeaway-item"><span class="takeaway-icon">🌟</span><div class="takeaway-label">Build Your Brand</div><div class="takeaway-desc">Create a positive online presence</div></div>
+        </div>
+
+        <h2 class="section-title"><span class="emoji">📝</span> Reflection Questions</h2>
+        <div class="reflection-box"><ul>
+            <li><i class="fas fa-question-circle"></i> What is a digital footprint and why does it matter?</li>
+            <li><i class="fas fa-question-circle"></i> Who might check your digital footprint and why?</li>
+            <li><i class="fas fa-question-circle"></i> What is the "Grandmother Test" and why is it useful?</li>
+            <li><i class="fas fa-question-circle"></i> What steps can you take to clean up your digital footprint?</li>
+            <li><i class="fas fa-question-circle"></i> How can you build a positive online reputation?</li>
+        </ul></div>
+
+        <h2 class="section-title"><span class="emoji">🏠</span> Homework</h2>
+        <div class="reflection-box">
+            <div class="hw-item"><i class="fas fa-search"></i> 1. Google Yourself</div><ul><li><i class="fas fa-chevron-right" style="color:#6d9bf0;"></i> Search your name online. Write down 3 things you find.</li></ul>
+            <div class="hw-item" style="margin-top:0.8rem;"><i class="fas fa-trash-alt"></i> 2. Post Cleanup</div><ul><li><i class="fas fa-chevron-right" style="color:#6d9bf0;"></i> Delete or hide 5 posts you wouldn't want an employer to see.</li></ul>
+            <div class="hw-item" style="margin-top:0.8rem;"><i class="fas fa-users"></i> 3. Family Mission</div><ul><li><i class="fas fa-chevron-right" style="color:#6d9bf0;"></i> Teach a family member about digital footprints and help them clean up theirs.</li></ul>
+        </div>
+
+        <div class="page-footer"><i class="fas fa-user-clock"></i> Your reputation matters &bull; Post wisely &bull; Think about your future<br><span style="font-size:0.8rem; opacity:0.7;"><i class="fas fa-bible"></i> "Whatever you do, work heartily, as for the Lord and not for men" — Colossians 3:23</span></div>
+    </div>
+</div>
+</body>
+</html>
